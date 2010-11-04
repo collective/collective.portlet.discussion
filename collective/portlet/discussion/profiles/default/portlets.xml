@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<portlets>
+
+ <!-- Portlet type registrations -->
+
+ <portlet
+   addview="collective.portlet.discussion.CommentPortlet"
+   title="Comments portlet"
+   description="A simple portlet to show a list of comments"
+   />
+
+</portlets>
