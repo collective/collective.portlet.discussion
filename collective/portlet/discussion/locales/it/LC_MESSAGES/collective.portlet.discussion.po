@@ -1,0 +1,68 @@
+msgid ""
+msgstr ""
+
+"Project-Id-Version: collective.portlet.discussion\n"
+"POT-Creation-Date: 2010-10-05 09:47+0000\n"
+"PO-Revision-Date: 2010-10-05 09:47+0000\n"
+"Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
+"Language-Team: <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: it\n"
+"Language-Name: Italian\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.portlet.discussion\n"
+
+#. Default: "Other..."
+msgid "label_other"
+msgstr "Altro..."
+
+#. Default: "Portlet title"
+msgid "Portlet title"
+msgstr "Titolo portlet"
+
+#. Default: "Insert the portlet title."
+msgid "Insert the portlet title."
+msgstr "Inserisci il titolo della portlet."
+
+#. Default: "Discussions state"
+msgid "Discussions state"
+msgstr "Stato commenti"
+
+#. Default: "Select the review state of the discussions. Leave empty to show all the discussions."
+msgid "Select the review state of the discussions. Leave empty to show all the discussions."
+msgstr "Seleziona lo stato di pubblicazione dei commenti. Lascialo vuoto per visualizzare tutti i commenti."
+
+#. Default "Discussions folder"
+msgid "Discussions folder"
+msgstr "Cartella dei commenti"
+
+#. Default "Insert the folder where you want to search the discussions. Leave empty to search in all the portal."
+msgid "Insert the folder where you want to search the discussions. Leave empty to search in all the portal."
+msgstr "Inserisci la cartella dove cercare i commenti. Lascialo vuoto per cercare in tutto il sito."
+
+#. Default "Number of discussions"
+msgid "Number of discussions"
+msgstr "Numero di commenti"
+
+#. Default "Specify how many discussions will be shown in the portlet."
+msgid "Specify how many discussions will be shown in the portlet."
+msgstr "Specifica quanti commenti mostrare nella portlet."
+
+#. Default "${discussion_author_label} on ${discussion_response_label}"
+msgid "${discussion_author_label} on ${discussion_response_label}"
+msgstr "${discussion_author_label} su ${discussion_response_label}"
+
+#. Default "Discussions"
+msgid "Discussions"
+msgstr "Commenti"
+
+#. Default "Private"
+msgid "Private"
+msgstr "Privato"
+
+#. Default "Published"
+msgid "Published"
+msgstr "Pubblicato"

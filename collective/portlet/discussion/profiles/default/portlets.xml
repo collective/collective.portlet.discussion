@@ -4,8 +4,8 @@
  <!-- Portlet type registrations -->
 
  <portlet
-   addview="collective.portlet.discussion.CommentPortlet"
-   title="Comments portlet"
+   addview="collective.portlet.discussion.DiscussionPortlet"
+   title="Discussion portlet"
    description="A simple portlet to show a list of comments"
    />
 

@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="rer.portlet.comments">
+
+  <include package="plone.app.contentmenu" />
+
+  	<browser:page
+        name="discussion_list_search"
+        for="*"
+        template="discussion_list_search.pt"
+        permission="zope2.View"
+        />
+
+</configure>

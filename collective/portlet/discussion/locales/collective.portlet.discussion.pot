@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+
+"Project-Id-Version: collective.portlet.discussion\n"
+"POT-Creation-Date: 2010-10-05 09:47+0000\n"
+"PO-Revision-Date: 2010-10-05 09:47+0000\n"
+"Last-Translator: Cecchi Andrea <andrea.cecchi@redturtle.net>\n"
+"Language-Team: <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: it\n"
+"Language-Name: Italian\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.portlet.discussion\n"
+
+#. Default: "Other..."
+msgid "label_other"
+msgstr ""
+
+#. Default: "Portlet title"
+msgid "Portlet title"
+msgstr ""
+
+#. Default: "Insert the portlet title."
+msgid "Insert the portlet title."
+msgstr ""
+
+#. Default: "Comments state"
+msgid "Comments state"
+msgstr ""
+
+#. Default: "Select the review state of the comments. Leave empty to show all the comments."
+msgid "Select the review state of the comments. Leave empty to show all the comments."
+msgstr ""
+
+#. Default "Search folder"
+msgid "Search folder"
+msgstr ""
+
+#. Default "Insert the folder where you want to search the comments. Leave empty to search in all the portal."
+msgid "Insert the folder where you want to search the comments. Leave empty to search in all the portal."
+msgstr ""
+
+#. Default "Number of comments"
+msgid "Number of comments"
+msgstr ""
+
+#. Default "Specify how many comments will be shown in the portlet."
+msgid "Specify how many comments will be shown in the portlet."
+msgstr ""
+
+#. Defaul#. Default "Comments"
+msgid "Comments"
+msgstr ""
+
+#. Default "Private"
+msgid "Private"
+msgstr ""
+
+#. Default "Published"
+msgid "Published"
+msgstr ""
