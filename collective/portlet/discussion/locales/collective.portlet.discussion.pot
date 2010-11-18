@@ -1,68 +1,73 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-
-"Project-Id-Version: collective.portlet.discussion\n"
-"POT-Creation-Date: 2010-10-05 09:47+0000\n"
-"PO-Revision-Date: 2010-10-05 09:47+0000\n"
-"Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
-"Language-Team: <>\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2010-11-18 09:26+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: it\n"
-"Language-Name: Italian\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.portlet.discussion\n"
 
-#. Default: "Other..."
-msgid "label_other"
-msgstr ""
-
-#. Default: "Portlet title"
-msgid "Portlet title"
-msgstr ""
-
-#. Default: "Insert the portlet title."
-msgid "Insert the portlet title."
-msgstr ""
-
-#. Default: "Discussions state"
-msgid "Discussions state"
-msgstr ""
-
-#. Default: "Select the review state of the discussions. Leave empty to show all the discussions."
-msgid "Select the review state of the discussions. Leave empty to show all the discussions."
-msgstr ""
-
-#. Default "Discussions folder"
-msgid "Discussions folder"
-msgstr ""
-
-#. Default "Insert the folder where you want to search the discussions. Leave empty to search in all the portal."
-msgid "Insert the folder where you want to search the discussions. Leave empty to search in all the portal."
-msgstr ""
-
-#. Default "Number of discussions"
-msgid "Number of discussions"
-msgstr ""
-
-#. Default "Specify how many discussions will be shown in the portlet."
-msgid "Specify how many discussions will be shown in the portlet."
-msgstr ""
-
-#. Default "${discussion_author_label} on ${discussion_response_label}"
+#. Default: "${discussion_author_label} on ${discussion_response_label}"
+#: ./discussionportlet.pt:24
 msgid "${discussion_author_label} on ${discussion_response_label}"
 msgstr ""
 
-#. Default "Discussions"
+#: ./discussionportlet.py:93
 msgid "Discussions"
 msgstr ""
 
-#. Default "Private"
+#: ./discussionportlet.py:31
+msgid "Discussions folder"
+msgstr ""
+
+#: ./discussionportlet.py:25
+msgid "Discussions state"
+msgstr ""
+
+#: ./discussionportlet.py:32
+msgid "Insert the folder where you want to search the discussions. Leave empty to search in all the portal."
+msgstr ""
+
+#: ./discussionportlet.py:22
+msgid "Insert the portlet title."
+msgstr ""
+
+#: ./discussionportlet.py:37
+msgid "Number of discussions"
+msgstr ""
+
+#: ./discussionportlet.py:21
+msgid "Portlet title"
+msgstr ""
+
+#: ./utility/vocab.py:24
 msgid "Private"
 msgstr ""
 
-#. Default "Published"
+#: ./utility/vocab.py:25
 msgid "Published"
 msgstr ""
+
+#: ./discussionportlet.py:26
+msgid "Select the review state of the discussions. Leave empty to show all the discussions."
+msgstr ""
+
+#: ./discussionportlet.py:40
+msgid "Specify how many discussions will be shown in the portlet."
+msgstr ""
+
+#. Default: "Other..."
+#: ./discussionportlet.pt:36
+msgid "label_other"
+msgstr ""
+
