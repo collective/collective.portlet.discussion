@@ -10,6 +10,7 @@ from urllib import urlencode
 from zope import schema
 from zope.formlib import form
 from zope.interface import implements
+from Products.CMFCore.utils import getToolByName
 
 class IDiscussionPortlet(IPortletDataProvider):
     """A portlet
@@ -94,12 +95,26 @@ class Renderer(base.Renderer):
         
     @memoize   
     def getDiscussionsList(self):
-        """return a list of discussions""" 
-        if not hasattr(self.context,'portal_catalog'):
+        """return a list of discussions"""
+        pc=getToolByName(self.context,'portal_catalog') 
+        if not pc:
             return []
         query=self.setQuery()
-        res=  self.context.portal_catalog.searchResults(**query)
-        return res
+        all_comments=pc(**query)
+        #filter comments to show only comments of objects that the user can view
+        uids=[x.UID for x in all_comments]
+        portal_types = getToolByName(self.context, 'portal_types')
+        portal_properties = getToolByName(self.context, 'portal_properties')
+        site_properties = getattr(portal_properties, 'site_properties')
+        if site_properties.hasProperty('types_not_searched'):
+            search_types=[x for x
+                          in portal_types.keys()
+        
+                          if x not in site_properties.getProperty('types_not_searched')]
+        objects_commented = pc(UID=uids,portal_type=search_types)
+        available_uids=[x.UID for x in objects_commented]
+        filtered_comments=[x for x in all_comments if x.UID in available_uids]
+        return filtered_comments 
     
     def setQuery(self): 
         """set the query for discussion search"""
