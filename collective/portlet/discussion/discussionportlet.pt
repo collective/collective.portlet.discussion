@@ -11,24 +11,21 @@
       <span class="portletTopRight"></span>
   </dt>
 
-    <dd class="portletItem">
-	    <tal:has_results condition="results">
-			<ul id="discussionList"
-				tal:define="discussion_icon python:plone_view.getIcon(results[0])">
-		    	<li tal:repeat="res python:results[:limit]">
-					<a href="" tal:attributes="href res/getURL">
-			    		<img tal:replace="structure discussion_icon/html_tag" />
-		    			<span class="discussionTitle" i18n:translate="">
-							<span tal:replace="res/author_name" i18n:name="discussion_author_label">author name</span>
-							on
-							<span tal:replace="res/in_response_to" i18n:name="discussion_response_label">document</span>
-						</span>
-	    			</a>
-					<p class="discreet discussionDate" tal:content="python:toLocalizedTime(res.effective)">date</p>
-				</li>
-			</ul>
-		</tal:has_results>
+	<tal:has_results condition="results"
+	     			 tal:define="discussion_icon python:plone_view.getIcon(results[0])">
+		
+    <dd tal:repeat="res python:results[:limit]" class="portletItem">
+		<a href="" tal:attributes="href res/getURL">
+			<img tal:replace="structure discussion_icon/html_tag" />
+			<span class="discussionTitle" i18n:translate="">
+				<span tal:replace="res/author_name" i18n:name="discussion_author_label">author name</span>
+						on
+				<span tal:replace="res/in_response_to" i18n:name="discussion_response_label">document</span>
+			</span>
+		</a>
+		<p class="discreet discussionDate" tal:content="python:toLocalizedTime(res.effective)">date</p>
 	</dd>
+	</tal:has_results>
 	<dd class="portletFooter">
 		<span class="portletBottomLeft"></span>
 	    	<div tal:condition="python:len(results)>limit">
