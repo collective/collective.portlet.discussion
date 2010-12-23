@@ -1,16 +1,15 @@
 from Products.ATContentTypes.interface import IATFolder
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from collective.portlet.discussion import DiscussionPortletMessageFactory as _
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.portlets.portlets import base
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
-from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 from urllib import urlencode
 from zope import schema
 from zope.formlib import form
 from zope.interface import implements
-from Products.CMFCore.utils import getToolByName
 
 class IDiscussionPortlet(IPortletDataProvider):
     """A portlet
@@ -93,7 +92,6 @@ class Renderer(base.Renderer):
         else:
             return _("Discussions")
         
-    @memoize   
     def getDiscussionsList(self):
         """return a list of discussions"""
         pc=getToolByName(self.context,'portal_catalog') 
