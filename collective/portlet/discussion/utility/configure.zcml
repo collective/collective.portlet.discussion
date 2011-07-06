@@ -6,5 +6,10 @@
     component=".vocab.DiscussionStatesVocabularyFactory"
     name="collective.portlet.discussion.DiscussionStatesVocab"
     />
+  
+  <utility component=".utility.CommentsListUtility"
+             provides=".interfaces.ICommentsListUtility"
+             name="comments_list_utility"
+             />
 
 </configure>

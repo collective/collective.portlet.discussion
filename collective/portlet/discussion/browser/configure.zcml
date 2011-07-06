@@ -9,6 +9,7 @@
         name="discussion_list_search"
         for="*"
         template="discussion_list_search.pt"
+		class=".discussion_list_search.View"
         permission="zope2.View"
         />
 

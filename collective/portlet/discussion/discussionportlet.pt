@@ -23,7 +23,7 @@
 				<span tal:replace="res/in_response_to" i18n:name="discussion_response_label">document</span>
 			</span>
 		</a>
-		<p class="discreet discussionDate" tal:content="python:toLocalizedTime(res.effective)">date</p>
+		<p class="discreet discussionDate" tal:content="python:toLocalizedTime(res.created)">date</p>
 	</dd>
 	</tal:has_results>
 	<dd class="portletFooter">

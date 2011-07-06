@@ -1,7 +1,12 @@
 Changelog
 =========
 
-1.0.0 (xxxx-xx-xx)
+1.0.1 (2011-07-??)
+------------------
+
+* Fixed filtered results [andrea]
+
+1.0.0 (2011-01-20)
 ------------------
 
 * Initial release
