@@ -12,6 +12,7 @@
 	
 	<include package=".browser" />
 	<include package=".utility" />
+  <include file="upgrades.zcml" />
 	
     <genericsetup:registerProfile
        name="default"

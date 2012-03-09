@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.portlet.discussion\n"
-"POT-Creation-Date: 2010-11-18 09:26+0000\n"
+"POT-Creation-Date: 2012-03-09 10:43+0000\n"
 "PO-Revision-Date: 2010-10-05 09:47+0000\n"
 "Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
 "Language-Team: <>\n"
@@ -16,67 +16,67 @@ msgstr ""
 
 #. Default "${discussion_author_label} on ${discussion_response_label}"
 #. Default: "${discussion_author_label} on ${discussion_response_label}"
-#: ./discussionportlet.pt:24
+#: ./browser/discussion_list_search.pt:67
+#: ./discussionportlet.pt:23
 msgid "${discussion_author_label} on ${discussion_response_label}"
 msgstr "${discussion_author_label} su ${discussion_response_label}"
 
 #. Default "Discussions"
-#: ./discussionportlet.py:93
+#: ./discussionportlet.py:98
 msgid "Discussions"
 msgstr "Commenti"
 
 #. Default "Discussions folder"
-#: ./discussionportlet.py:31
+#: ./discussionportlet.py:35
 msgid "Discussions folder"
 msgstr "Cartella dei commenti"
 
 #. Default: "Discussions state"
-#: ./discussionportlet.py:25
+#: ./discussionportlet.py:29
 msgid "Discussions state"
 msgstr "Stato commenti"
 
 #. Default "Insert the folder where you want to search the discussions. Leave empty to search in all the portal."
-#: ./discussionportlet.py:32
+#: ./discussionportlet.py:36
 msgid "Insert the folder where you want to search the discussions. Leave empty to search in all the portal."
 msgstr "Inserisci la cartella dove cercare i commenti. Lascialo vuoto per cercare in tutto il sito."
 
 #. Default: "Insert the portlet title."
-#: ./discussionportlet.py:22
+#: ./discussionportlet.py:26
 msgid "Insert the portlet title."
 msgstr "Inserisci il titolo della portlet."
 
 #. Default "Number of discussions"
-#: ./discussionportlet.py:37
+#: ./discussionportlet.py:41
 msgid "Number of discussions"
 msgstr "Numero di commenti"
 
+#: ./utility/vocab.py:19
+msgid "Pending"
+msgstr "In attesa"
+
 #. Default: "Portlet title"
-#: ./discussionportlet.py:21
+#: ./discussionportlet.py:25
 msgid "Portlet title"
 msgstr "Titolo portlet"
 
-#. Default "Private"
-#: ./utility/vocab.py:24
-msgid "Private"
-msgstr "Privato"
-
 #. Default "Published"
-#: ./utility/vocab.py:25
+#: ./utility/vocab.py:20
 msgid "Published"
 msgstr "Pubblicato"
 
 #. Default: "Select the review state of the discussions. Leave empty to show all the discussions."
-#: ./discussionportlet.py:26
+#: ./discussionportlet.py:30
 msgid "Select the review state of the discussions. Leave empty to show all the discussions."
 msgstr "Seleziona lo stato di pubblicazione dei commenti. Lascialo vuoto per visualizzare tutti i commenti."
 
 #. Default "Specify how many discussions will be shown in the portlet."
-#: ./discussionportlet.py:40
+#: ./discussionportlet.py:44
 msgid "Specify how many discussions will be shown in the portlet."
 msgstr "Specifica quanti commenti mostrare nella portlet."
 
 #. Default: "Other..."
-#: ./discussionportlet.pt:36
+#: ./discussionportlet.pt:33
 msgid "label_other"
 msgstr "Altro..."
 

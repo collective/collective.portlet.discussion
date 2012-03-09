@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-11-18 09:26+0000\n"
+"POT-Creation-Date: 2012-03-09 10:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,57 +17,57 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.portlet.discussion\n"
 
-#. Default: "${discussion_author_label} on ${discussion_response_label}"
-#: ./discussionportlet.pt:24
+#: ./browser/discussion_list_search.pt:67
+#: ./discussionportlet.pt:23
 msgid "${discussion_author_label} on ${discussion_response_label}"
 msgstr ""
 
-#: ./discussionportlet.py:93
+#: ./discussionportlet.py:98
 msgid "Discussions"
 msgstr ""
 
-#: ./discussionportlet.py:31
+#: ./discussionportlet.py:35
 msgid "Discussions folder"
 msgstr ""
 
-#: ./discussionportlet.py:25
+#: ./discussionportlet.py:29
 msgid "Discussions state"
 msgstr ""
 
-#: ./discussionportlet.py:32
+#: ./discussionportlet.py:36
 msgid "Insert the folder where you want to search the discussions. Leave empty to search in all the portal."
 msgstr ""
 
-#: ./discussionportlet.py:22
+#: ./discussionportlet.py:26
 msgid "Insert the portlet title."
 msgstr ""
 
-#: ./discussionportlet.py:37
+#: ./discussionportlet.py:41
 msgid "Number of discussions"
 msgstr ""
 
-#: ./discussionportlet.py:21
+#: ./utility/vocab.py:19
+msgid "Pending"
+msgstr ""
+
+#: ./discussionportlet.py:25
 msgid "Portlet title"
 msgstr ""
 
-#: ./utility/vocab.py:24
-msgid "Private"
-msgstr ""
-
-#: ./utility/vocab.py:25
+#: ./utility/vocab.py:20
 msgid "Published"
 msgstr ""
 
-#: ./discussionportlet.py:26
+#: ./discussionportlet.py:30
 msgid "Select the review state of the discussions. Leave empty to show all the discussions."
 msgstr ""
 
-#: ./discussionportlet.py:40
+#: ./discussionportlet.py:44
 msgid "Specify how many discussions will be shown in the portlet."
 msgstr ""
 
 #. Default: "Other..."
-#: ./discussionportlet.pt:36
+#: ./discussionportlet.pt:33
 msgid "label_other"
 msgstr ""
 

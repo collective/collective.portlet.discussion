@@ -14,6 +14,7 @@ from collective.portlet.discussion.utility.interfaces import ICommentsListUtilit
 from zope.component import getUtility
 from zope.component.interfaces import ComponentLookupError
 
+
 class IDiscussionPortlet(IPortletDataProvider):
     """A portlet
 
@@ -24,23 +25,24 @@ class IDiscussionPortlet(IPortletDataProvider):
     portletTitle = schema.TextLine(title=_(u"Portlet title"),
                                    description=_(u"Insert the portlet title."),
                                    required=True)
-    
+
     discussionState = schema.List(title=_(u'Discussions state'),
                     description=_(u'Select the review state of the discussions. Leave empty to show all the discussions.'),
-                    value_type = schema.Choice(vocabulary= "collective.portlet.discussion.DiscussionStatesVocab",
+                    value_type=schema.Choice(vocabulary="collective.portlet.discussion.DiscussionStatesVocab",
                                                required=False,)
                    )
-    
+
     discussionFolder = schema.Choice(title=_(u"Discussions folder"),
                                   description=_(u"Insert the folder where you want to search the discussions. Leave empty to search in all the portal."),
                                   required=False,
-                                  source=SearchableTextSourceBinder({'object_provides' : IATFolder.__identifier__},
+                                  source=SearchableTextSourceBinder({'object_provides': IATFolder.__identifier__},
                                                                     default_query='path:'))
-    
+
     nDiscussions = schema.Int(title=_(u"Number of discussions"),
                            required=False,
                            default=5,
                            description=_(u"Specify how many discussions will be shown in the portlet."),)
+
 
 class Assignment(base.Assignment):
     """Portlet assignment.
@@ -51,11 +53,11 @@ class Assignment(base.Assignment):
 
     implements(IDiscussionPortlet)
 
-    def __init__(self,portletTitle='', nDiscussions=5,discussionFolder=None,discussionState=''):
+    def __init__(self, portletTitle='', nDiscussions=5, discussionFolder=None, discussionState=''):
         self.portletTitle = portletTitle
         self.nDiscussions = nDiscussions
-        self.discussionFolder=discussionFolder
-        self.discussionState=discussionState
+        self.discussionFolder = discussionFolder
+        self.discussionState = discussionState
 
     @property
     def title(self):
@@ -77,7 +79,7 @@ class Renderer(base.Renderer):
     """
 
     render = ViewPageTemplateFile('discussionportlet.pt')
-    
+
     @property
     def available(self):
         try:
@@ -87,7 +89,7 @@ class Renderer(base.Renderer):
                 return False
         except AttributeError:
             return False
-        
+
     def getPortletTitle(self):
         """return the portlet title"""
         if self.data.portletTitle:
