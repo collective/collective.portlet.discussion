@@ -1,17 +1,18 @@
 Changelog
 =========
 
-1.1.0 (2012-03-??)
+1.1.0 (unreleased)
 ------------------
 
-* Added new workflows for Discussion Items [andrea]
+* Added new workflows for Discussion Items [micecchi]
+* Plone 4 compatibility [micecchi]
 
 1.0.1 (2011-07-10)
 ------------------
 
-* Fixed filtered results [andrea]
+* Fixed filtered results [micecchi]
 
 1.0.0 (2011-01-20)
 ------------------
 
-* Initial release
+* Initial release [micecchi]
