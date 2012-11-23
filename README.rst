@@ -4,7 +4,7 @@ Introduction
 This is a portlet is a plugin for `plone.app.discussion <http://pypi.python.org/pypi/plone.app.discussion>`_
 that show last comments in the portal.
 
-You can select to filter comments by state (if comments are moderated)
+You can select to filter comments by state (if comments are moderated) and also a starting path for searches.
 
 Workflow
 ========
