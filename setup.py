@@ -11,13 +11,19 @@ setup(name='collective.portlet.discussion',
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
+        "Framework :: Plone",
+        "Framework :: Plone :: 3.3",
+        "Framework :: Plone :: 4.0",
+        "Framework :: Plone :: 4.1",
+        "Framework :: Plone :: 4.2",
+        "Development Status :: 5 - Production/Stable",
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
-      keywords='',
+      keywords='discussion portlet comments',
       author='RedTurtle Technology',
-      author_email='sviluppoplone@redturtle.net',
-      url='http://plone.org',
+      author_email='sviluppoplone@redturtle.it',
+      url='http://plone.org/products/collective.portlet.discussion',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['collective', 'collective.portlet'],
@@ -25,7 +31,7 @@ setup(name='collective.portlet.discussion',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # -*- Extra requirements: -*-
+          'plone.app.discussion',
       ],
       entry_points="""
       # -*- entry_points -*-
