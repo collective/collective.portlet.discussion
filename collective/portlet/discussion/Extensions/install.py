@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from collective.portlet.discussion import logger
 from zope.component import getMultiAdapter
 
