@@ -5,7 +5,7 @@ version = '1.2.1.dev0'
 
 setup(name='collective.portlet.discussion',
       version=version,
-      description="A simple portlet to show a list of comments",
+      description="A simple Plone portlet to show a list of comments",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
