@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-03-09 10:43+0000\n"
+"POT-Creation-Date: 2013-06-26 14:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,12 @@ msgstr ""
 #: ./browser/discussion_list_search.pt:67
 #: ./discussionportlet.pt:23
 msgid "${discussion_author_label} on ${discussion_response_label}"
+msgstr ""
+
+msgid "A portlet that show a list of comments"
+msgstr ""
+
+msgid "Discussion portlet"
 msgstr ""
 
 #: ./discussionportlet.py:98
@@ -46,7 +52,7 @@ msgstr ""
 msgid "Number of discussions"
 msgstr ""
 
-#: ./utility/vocab.py:19
+#: ./utility/vocab.py:22
 msgid "Pending"
 msgstr ""
 
@@ -54,7 +60,7 @@ msgstr ""
 msgid "Portlet title"
 msgstr ""
 
-#: ./utility/vocab.py:20
+#: ./utility/vocab.py:23
 msgid "Published"
 msgstr ""
 
