@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.1.1.dev0'
+version = '1.2.0.dev0'
 
 setup(name='collective.portlet.discussion',
       version=version,
@@ -15,6 +15,7 @@ setup(name='collective.portlet.discussion',
         "Framework :: Plone :: 4.0",
         "Framework :: Plone :: 4.1",
         "Framework :: Plone :: 4.2",
+        "Framework :: Plone :: 4.3",
         "Development Status :: 4 - Beta",
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
