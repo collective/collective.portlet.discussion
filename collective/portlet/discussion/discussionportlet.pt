@@ -7,7 +7,7 @@
 
   <dt class="portletHeader">
       <span class="portletTopLeft"></span>
-      <a><span tal:content="view/getPortletTitle"/></a>
+      <span class="tile" tal:content="view/getPortletTitle"/>
       <span class="portletTopRight"></span>
   </dt>
 

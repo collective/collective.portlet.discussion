@@ -4,7 +4,7 @@ Changelog
 1.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added class tile to portlet header [andrea]
 
 
 1.2.0 (2013-06-26)
