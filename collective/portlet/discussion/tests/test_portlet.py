@@ -8,7 +8,7 @@ from plone.portlets.interfaces import IPortletRenderer
 
 from plone.app.portlets.storage import PortletAssignmentMapping
 
-from collective.portlet.discussion import commentportlet
+from collective.portlet.discussion import discussionportlet
 
 from collective.portlet.discussion.tests.base import TestCase
 
@@ -21,20 +21,20 @@ class TestPortlet(TestCase):
     def test_portlet_type_registered(self):
         portlet = getUtility(
             IPortletType,
-            name='collective.portlet.discussion.CommentPortlet')
+            name='collective.portlet.discussion.discussionportlet')
         self.assertEquals(portlet.addview,
-                          'collective.portlet.discussion.CommentPortlet')
+                          'collective.portlet.discussion.discussionportlet')
 
     def test_interfaces(self):
         # TODO: Pass any keyword arguments to the Assignment constructor
-        portlet = commentportlet.Assignment()
+        portlet = discussionportlet.Assignment()
         self.failUnless(IPortletAssignment.providedBy(portlet))
         self.failUnless(IPortletDataProvider.providedBy(portlet.data))
 
     def test_invoke_add_view(self):
         portlet = getUtility(
             IPortletType,
-            name='collective.portlet.discussion.CommentPortlet')
+            name='collective.portlet.discussion.discussionportlet')
         mapping = self.portal.restrictedTraverse(
             '++contextportlets++plone.leftcolumn')
         for m in mapping.keys():
@@ -49,16 +49,16 @@ class TestPortlet(TestCase):
 
         self.assertEquals(len(mapping), 1)
         self.failUnless(isinstance(mapping.values()[0],
-                                   commentportlet.Assignment))
+                                   discussionportlet.Assignment))
 
     def test_invoke_edit_view(self):
         # NOTE: This test can be removed if the portlet has no edit form
         mapping = PortletAssignmentMapping()
         request = self.folder.REQUEST
 
-        mapping['foo'] = commentportlet.Assignment()
+        mapping['foo'] = discussionportlet.Assignment()
         editview = getMultiAdapter((mapping['foo'], request), name='edit')
-        self.failUnless(isinstance(editview, commentportlet.EditForm))
+        self.failUnless(isinstance(editview, discussionportlet.EditForm))
 
     def test_obtain_renderer(self):
         context = self.folder
@@ -68,11 +68,11 @@ class TestPortlet(TestCase):
                              context=self.portal)
 
         # TODO: Pass any keyword arguments to the Assignment constructor
-        assignment = commentportlet.Assignment()
+        assignment = discussionportlet.Assignment()
 
         renderer = getMultiAdapter(
             (context, request, view, manager, assignment), IPortletRenderer)
-        self.failUnless(isinstance(renderer, commentportlet.Renderer))
+        self.failUnless(isinstance(renderer, discussionportlet.Renderer))
 
 
 class TestRenderer(TestCase):
@@ -90,14 +90,14 @@ class TestRenderer(TestCase):
 
         # TODO: Pass any default keyword arguments to the Assignment
         # constructor.
-        assignment = assignment or commentportlet.Assignment()
+        assignment = assignment or discussionportlet.Assignment()
         return getMultiAdapter((context, request, view, manager, assignment),
                                IPortletRenderer)
 
     def test_render(self):
         # TODO: Pass any keyword arguments to the Assignment constructor.
         r = self.renderer(context=self.portal,
-                          assignment=commentportlet.Assignment())
+                          assignment=discussionportlet.Assignment())
         r = r.__of__(self.folder)
         r.update()
         output = r.render()

@@ -4,7 +4,7 @@ Changelog
 1.2.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed tests [cekk]
 
 
 1.2.2 (2013-11-07)
