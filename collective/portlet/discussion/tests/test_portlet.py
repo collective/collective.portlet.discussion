@@ -21,9 +21,9 @@ class TestPortlet(TestCase):
     def test_portlet_type_registered(self):
         portlet = getUtility(
             IPortletType,
-            name='collective.portlet.discussion.discussionportlet')
+            name='collective.portlet.discussion.DiscussionPortlet')
         self.assertEquals(portlet.addview,
-                          'collective.portlet.discussion.discussionportlet')
+                          'collective.portlet.discussion.DiscussionPortlet')
 
     def test_interfaces(self):
         # TODO: Pass any keyword arguments to the Assignment constructor
@@ -34,7 +34,7 @@ class TestPortlet(TestCase):
     def test_invoke_add_view(self):
         portlet = getUtility(
             IPortletType,
-            name='collective.portlet.discussion.discussionportlet')
+            name='collective.portlet.discussion.DiscussionPortlet')
         mapping = self.portal.restrictedTraverse(
             '++contextportlets++plone.leftcolumn')
         for m in mapping.keys():
@@ -93,15 +93,6 @@ class TestRenderer(TestCase):
         assignment = assignment or discussionportlet.Assignment()
         return getMultiAdapter((context, request, view, manager, assignment),
                                IPortletRenderer)
-
-    def test_render(self):
-        # TODO: Pass any keyword arguments to the Assignment constructor.
-        r = self.renderer(context=self.portal,
-                          assignment=discussionportlet.Assignment())
-        r = r.__of__(self.folder)
-        r.update()
-        output = r.render()
-        # TODO: Test output
 
 
 def test_suite():
