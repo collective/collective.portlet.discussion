@@ -33,15 +33,15 @@ class IDiscussionPortlet(IPortletDataProvider):
                    )
 
     discussionFolder = schema.Choice(title=_(u"Discussions folder"),
-                                  description=_(u"Insert the folder where you want to search the discussions. Leave empty to search in all the portal."),
-                                  required=False,
-                                  source=SearchableTextSourceBinder({'object_provides': IATFolder.__identifier__},
-                                                                    default_query='path:'))
+                                     description=_(u"Insert the folder where you want to search the discussions. Leave empty to search in all the portal."),
+                                     required=False,
+                                     source=SearchableTextSourceBinder({'object_provides': IATFolder.__identifier__},
+                                                                       default_query='path:'))
 
     nDiscussions = schema.Int(title=_(u"Number of discussions"),
-                           required=False,
-                           default=5,
-                           description=_(u"Specify how many discussions will be shown in the portlet."))
+                              required=False,
+                              default=5,
+                              description=_(u"Specify how many discussions will be shown in the portlet."))
 
 
 class Assignment(base.Assignment):
