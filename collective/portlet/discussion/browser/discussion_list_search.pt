@@ -48,7 +48,8 @@
         <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
     </div>
 
-    <div tal:condition="results"
+    <div tal:condition="results">
+    <tal:batch-ns
           tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
 
         <dl class="searchResults">
@@ -128,6 +129,7 @@
 
         <div metal:use-macro="here/batch_macros/macros/navigation" />
 
+    </tal:batch-ns>
     </div>
 
 </div>
