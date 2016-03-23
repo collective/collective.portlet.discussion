@@ -1,6 +1,8 @@
 *~
+*.pyc
 Include
 Lib
 Scripts
 # non-Windows:
 bin
+collective.portlet.discussion.egg-info
