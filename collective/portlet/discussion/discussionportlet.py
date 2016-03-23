@@ -108,8 +108,8 @@ class Renderer(base.Renderer):
     def setQuery(self):
         """set the query for discussion search"""
         query = {'portal_type': 'Discussion Item',
-              'sort_on': 'created',
-              'sort_order': 'reverse'}
+                 'sort_on': 'created',
+                 'sort_order': 'reverse'}
         if self.data.discussionFolder:
             root_path = '/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
             query['path'] = root_path + self.data.discussionFolder
