@@ -35,12 +35,12 @@
         <span i18n:translate="">
             Ricerca commenti
         </span>
-		
+
         <span class="discreet">
         &mdash;
         <span i18n:translate="batch_x_items_matching_your_criteria"
-        ><span i18n:name="number" 
-        tal:omit-tag="" 
+        ><span i18n:name="number"
+        tal:omit-tag=""
         tal:content="python:len(results)">234</span> items matching your search terms</span>
     </h1>
 
@@ -48,29 +48,33 @@
         <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
     </div>
 
-    <div tal:condition="results"
+    <div tal:condition="results">
+    <tal:batch-ns
           tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
 
         <dl class="searchResults">
-        <tal:results repeat="result batch">
+        <tal:results define="isAnon isAnon | context/@@plone_portal_state/anonymous;
+                             nonlinked_creator_ids python:['admin','redazione','anonimo'];
+                             "
+                     repeat="result batch">
         <tal:entry define="result_url result/getURL;
                            result_type result/portal_type;
                            item_icon python:plone_view.getIcon(result);">
             <dt tal:define="item_wf_state_class string:state-${result/review_state};"
                 tal:attributes="class python:'contenttype-' + normalizeString(result.portal_type)">
               <img tal:replace="structure item_icon/html_tag" />
-			   <a
-                 href="#" 
+               <a
+                 href="#"
                  tal:attributes="href result_url;
                                  class string:$item_wf_state_class">
-               		<span class="discussionTitleView" i18n:domain="collective.portlet.discussion" i18n:translate="">
-							<span tal:replace="result/author_name" i18n:name="discussion_author_label">author name</span>
-							on
-							<span tal:replace="result/in_response_to" i18n:name="discussion_response_label">document</span>
-					</span>
-				</a>
+                    <span class="discussionTitleView" i18n:domain="collective.portlet.discussion" i18n:translate="">
+                            <span tal:replace="result/author_name" i18n:name="discussion_author_label">author name</span>
+                            on
+                            <span tal:replace="result/in_response_to" i18n:name="discussion_response_label">document</span>
+                    </span>
+                </a>
             </dt>
-            
+
             <dd>
                 <span tal:replace="python:plone_view.cropText(result.Description, desc_length, desc_ellipsis)">
                     Cropped description
@@ -84,13 +88,13 @@
                 <a href="#"
                    tal:attributes="href string:${portal_url}/author/${result/Creator}"
                    tal:content="result/Creator"
-				   tal:condition="python:result.Creator not in ['admin','redazione','anonimo']"
+                   tal:condition="python:result.Creator not in nonlinked_creator_ids"
                    tal:omit-tag="not:result/Creator"
                    i18n:name="author">
                 Bob Dobalina
                 </a>
-				<span tal:condition="python:result.Creator in ['admin','redazione','anonimo']"
-					  tal:replace="result/Creator"/>		
+                <span tal:condition="python:result.Creator in nonlinked_creator_ids"
+                      tal:replace="result/Creator"/>
                 </span>
 
                 <span class="documentModified">
@@ -117,7 +121,7 @@
                                Category
                             </a><tal:separator condition="not: repeat/category/end">,</tal:separator>
                         </span>
-                </span>    
+                </span>
             </span>
 
             </dd>
@@ -125,9 +129,10 @@
         </tal:entry>
         </tal:results>
         </dl>
-         
+
         <div metal:use-macro="here/batch_macros/macros/navigation" />
 
+    </tal:batch-ns>
     </div>
 
 </div>

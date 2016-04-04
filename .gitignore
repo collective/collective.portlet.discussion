@@ -1,0 +1,10 @@
+# installation artifacts:
+*.pyc
+collective.portlet.discussion.egg-info
+# virtualenv:
+Include
+Lib
+Scripts
+bin
+# other:
+*~

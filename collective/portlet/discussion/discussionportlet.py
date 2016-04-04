@@ -29,19 +29,19 @@ class IDiscussionPortlet(IPortletDataProvider):
     discussionState = schema.List(title=_(u'Discussions state'),
                     description=_(u'Select the review state of the discussions. Leave empty to show all the discussions.'),
                     value_type=schema.Choice(vocabulary="collective.portlet.discussion.DiscussionStatesVocab",
-                                               required=False,)
+                                             required=False)
                    )
 
     discussionFolder = schema.Choice(title=_(u"Discussions folder"),
-                                  description=_(u"Insert the folder where you want to search the discussions. Leave empty to search in all the portal."),
-                                  required=False,
-                                  source=SearchableTextSourceBinder({'object_provides': IATFolder.__identifier__},
-                                                                    default_query='path:'))
+                                     description=_(u"Insert the folder where you want to search the discussions. Leave empty to search in all the portal."),
+                                     required=False,
+                                     source=SearchableTextSourceBinder({'object_provides': IATFolder.__identifier__},
+                                                                       default_query='path:'))
 
     nDiscussions = schema.Int(title=_(u"Number of discussions"),
-                           required=False,
-                           default=5,
-                           description=_(u"Specify how many discussions will be shown in the portlet."),)
+                              required=False,
+                              default=5,
+                              description=_(u"Specify how many discussions will be shown in the portlet."))
 
 
 class Assignment(base.Assignment):
@@ -96,30 +96,31 @@ class Renderer(base.Renderer):
             return self.data.portletTitle
         else:
             return _("Discussions")
-        
+
     def getDiscussionsList(self):
         """return a list of discussions"""
         try:
-            utility =getUtility(ICommentsListUtility,name="comments_list_utility")(self.context)
+            utility = getUtility(ICommentsListUtility, name="comments_list_utility")(self.context)
             return utility(self.setQuery())
         except ComponentLookupError:
             return []
-    
-    def setQuery(self): 
+
+    def setQuery(self):
         """set the query for discussion search"""
-        query={'portal_type':'Discussion Item',
-              'sort_on':'created',
-              'sort_order':'reverse'}
+        query = {'portal_type': 'Discussion Item',
+                 'sort_on': 'created',
+                 'sort_order': 'reverse'}
         if self.data.discussionFolder:
-            root_path='/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
-            query['path']=root_path+self.data.discussionFolder
+            root_path = '/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
+            query['path'] = root_path + self.data.discussionFolder
         if len(self.data.discussionState) == 1:
-            query['review_state']=self.data.discussionState[0]
+            query['review_state'] = self.data.discussionState[0]
         return query
-    
+
     def urlencodeQuery(self):
         """return the query urlencoded"""
         return urlencode(self.setQuery())
+
 
 class AddForm(base.AddForm):
     """Portlet add form.
@@ -130,9 +131,10 @@ class AddForm(base.AddForm):
     """
     form_fields = form.Fields(IDiscussionPortlet)
     form_fields['discussionFolder'].custom_widget = UberSelectionWidget
-    
+
     def create(self, data):
         return Assignment(**data)
+
 
 class EditForm(base.EditForm):
     """Portlet edit form.

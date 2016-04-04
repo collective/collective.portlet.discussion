@@ -20,6 +20,6 @@ class DiscussionStatesVocabulary(object):
         request = aq_get(context, 'REQUEST', None)
 
         return SimpleVocabulary.fromItems(((translate(_('Pending'), context=request), 'pending'),
-                                           (translate(_('Published'), context=request), 'published'),))
+                                           (translate(_('Published'), context=request), 'published')))
 
 DiscussionStatesVocabularyFactory = DiscussionStatesVocabulary()

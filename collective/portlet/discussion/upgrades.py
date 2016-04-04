@@ -7,6 +7,7 @@ default_profile = 'profile-collective.portlet.discussion:default'
 
 def upgrade(upgrade_product, version):
     """ Decorator for updating the QuickInstaller of a upgrade """
+
     def wrap_func(fn):
         def wrap_func_args(context, *args):
             p = getToolByName(context, 'portal_quickinstaller').get(upgrade_product)
