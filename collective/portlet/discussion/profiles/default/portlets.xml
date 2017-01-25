@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<portlets>
+<portlets xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="plone">
 
  <!-- Portlet type registrations -->
 
@@ -7,6 +8,7 @@
    addview="collective.portlet.discussion.DiscussionPortlet"
    title="Discussion portlet"
    description="A simple portlet to show a list of comments"
+   i18n:attributes="title; description"
    />
 
 </portlets>

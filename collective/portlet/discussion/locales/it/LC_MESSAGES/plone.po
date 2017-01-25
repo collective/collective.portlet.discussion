@@ -1,10 +1,7 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-03-09 10:43+0000\n"
+"POT-Creation-Date: 2017-01-25 14:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,10 +12,12 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: collective.portlet.discussion\n"
+"Domain: DOMAIN\n"
 
-msgid "Discussion portlet"
+#: profiles/default/portlets.xml
+msgid "A simple portlet to show a list of comments"
 msgstr ""
 
-msgid "A portlet that show a list of comments"
+#: profiles/default/portlets.xml
+msgid "Discussion portlet"
 msgstr ""

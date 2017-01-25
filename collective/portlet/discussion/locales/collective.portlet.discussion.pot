@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-26 14:19+0000\n"
+"POT-Creation-Date: 2017-01-25 14:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,29 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.portlet.discussion\n"
 
-#: ./browser/discussion_list_search.pt:67
+#: ./browser/discussion_list_search.pt:73
 #: ./discussionportlet.pt:23
 msgid "${discussion_author_label} on ${discussion_response_label}"
 msgstr ""
 
+#: ./configure.zcml:23
 msgid "A portlet that show a list of comments"
 msgstr ""
 
+#: ./configure.zcml:31
+msgid "A simple portlet to show a list of comments"
+msgstr ""
+
+#: ./discussionportlet.py:134
+msgid "Add Discussion Portlet"
+msgstr ""
+
+#: ./configure.zcml:23
 msgid "Discussion portlet"
+msgstr ""
+
+#: ./configure.zcml:31
+msgid "Discussion portlet: uninstall"
 msgstr ""
 
 #: ./discussionportlet.py:98
@@ -38,6 +52,10 @@ msgstr ""
 
 #: ./discussionportlet.py:29
 msgid "Discussions state"
+msgstr ""
+
+#: ./discussionportlet.py:149
+msgid "Edit Discussion Portlet"
 msgstr ""
 
 #: ./discussionportlet.py:36
@@ -72,8 +90,11 @@ msgstr ""
 msgid "Specify how many discussions will be shown in the portlet."
 msgstr ""
 
+#: ./discussionportlet.py:135
+msgid "This portlet displays a list of comments."
+msgstr ""
+
 #. Default: "Other..."
 #: ./discussionportlet.pt:33
 msgid "label_other"
 msgstr ""
-
