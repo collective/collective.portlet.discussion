@@ -131,6 +131,8 @@ class AddForm(base.AddForm):
     """
     form_fields = form.Fields(IDiscussionPortlet)
     form_fields['discussionFolder'].custom_widget = UberSelectionWidget
+    label = _(u"Add Discussion Portlet")
+    description = _(u"This portlet displays a list of comments.")
 
     def create(self, data):
         return Assignment(**data)
@@ -144,3 +146,5 @@ class EditForm(base.EditForm):
     """
     form_fields = form.Fields(IDiscussionPortlet)
     form_fields['discussionFolder'].custom_widget = UberSelectionWidget
+    label = _(u"Edit Discussion Portlet")
+    description = _(u"This portlet displays a list of comments.")
