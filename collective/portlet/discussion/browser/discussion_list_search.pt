@@ -32,8 +32,8 @@
                  toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
     <h1 class="documentFirstHeading">
-        <span i18n:translate="">
-            Ricerca commenti
+        <span i18n:translate="" i18n:domain="collective.portlet.discussion">
+            Comment search
         </span>
 
         <span class="discreet">

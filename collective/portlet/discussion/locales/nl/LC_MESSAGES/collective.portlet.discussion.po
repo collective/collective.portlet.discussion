@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.portlet.discussion\n"
-"POT-Creation-Date: 2017-01-25 14:39+0000\n"
+"POT-Creation-Date: 2017-01-30 15:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Zest Software <info@zestsoftware.nl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,16 +20,16 @@ msgid "${discussion_author_label} on ${discussion_response_label}"
 msgstr "${discussion_author_label} op ${discussion_response_label}"
 
 #: ./configure.zcml:23
-msgid "A portlet that show a list of comments"
+msgid "A portlet that shows a list of comments"
 msgstr "Een portlet dat een lijst van opmerkingen toont"
-
-#: ./configure.zcml:31
-msgid "A simple portlet to show a list of comments"
-msgstr "Een eenvoudig portlet dat een lijst van opmerkingen toont"
 
 #: ./discussionportlet.py:134
 msgid "Add Discussion Portlet"
 msgstr "Voeg opmerkingenportlet toe"
+
+#: ./browser/discussion_list_search.pt:35
+msgid "Comment search"
+msgstr "Zoek in opmerkingen"
 
 #: ./configure.zcml:23
 msgid "Discussion portlet"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.portlet.discussion\n"
-"POT-Creation-Date: 2017-01-25 14:39+0000\n"
+"POT-Creation-Date: 2017-01-30 15:32+0000\n"
 "PO-Revision-Date: 2010-10-05 09:47+0000\n"
 "Last-Translator: Andrea Cecchi <andrea.cecchi@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.it>\n"
@@ -22,16 +22,16 @@ msgid "${discussion_author_label} on ${discussion_response_label}"
 msgstr "${discussion_author_label} su ${discussion_response_label}"
 
 #: ./configure.zcml:23
-msgid "A portlet that show a list of comments"
+msgid "A portlet that shows a list of comments"
 msgstr "Una portlet che mostra una lista di commenti"
-
-#: ./configure.zcml:31
-msgid "A simple portlet to show a list of comments"
-msgstr ""
 
 #: ./discussionportlet.py:134
 msgid "Add Discussion Portlet"
 msgstr ""
+
+#: ./browser/discussion_list_search.pt:35
+msgid "Comment search"
+msgstr "Ricerca commenti"
 
 #: ./configure.zcml:23
 msgid "Discussion portlet"
