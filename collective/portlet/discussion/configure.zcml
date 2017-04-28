@@ -18,7 +18,7 @@
        name="default"
        title="Discussion portlet"
        directory="profiles/default"
-       description="A portlet that show a list of comments"
+       description="A portlet that shows a list of comments"
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
 
@@ -26,7 +26,7 @@
        name="uninstall"
        title="Discussion portlet: uninstall"
        directory="profiles/uninstall"
-       description="A simple portlet to show a list of comments"
+       description="A portlet that shows a list of comments"
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
      <!-- Register the portlet -->

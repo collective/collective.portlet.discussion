@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-01-25 14:39+0000\n"
+"POT-Creation-Date: 2017-04-26 16:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,15 +23,15 @@ msgid "${discussion_author_label} on ${discussion_response_label}"
 msgstr ""
 
 #: ./configure.zcml:23
-msgid "A portlet that show a list of comments"
-msgstr ""
-
-#: ./configure.zcml:31
-msgid "A simple portlet to show a list of comments"
+msgid "A portlet that shows a list of comments"
 msgstr ""
 
 #: ./discussionportlet.py:134
 msgid "Add Discussion Portlet"
+msgstr ""
+
+#: ./browser/discussion_list_search.pt:35
+msgid "Comment search"
 msgstr ""
 
 #: ./configure.zcml:23
@@ -97,4 +97,8 @@ msgstr ""
 #. Default: "Other..."
 #: ./discussionportlet.pt:33
 msgid "label_other"
+msgstr ""
+
+#: ./browser/discussion_list_search.pt:87
+msgid "written by"
 msgstr ""
