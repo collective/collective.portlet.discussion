@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.portlet.discussion\n"
-"POT-Creation-Date: 2017-01-30 15:32+0000\n"
+"POT-Creation-Date: 2017-04-26 16:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Zest Software <info@zestsoftware.nl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,3 +95,7 @@ msgstr "Dit portlet toont een lijst van opmerkingen."
 #: ./discussionportlet.pt:33
 msgid "label_other"
 msgstr "Andere..."
+
+#: ./browser/discussion_list_search.pt:87
+msgid "written by"
+msgstr "geschreven door"

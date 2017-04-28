@@ -4,7 +4,7 @@ Changelog
 1.2.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix translations for discussion_list_search. [fredvd]
 
 
 1.2.4 (2017-01-25)

@@ -84,7 +84,7 @@
                   tal:condition="python:not isAnon or site_properties.allowAnonymousViewAbout">
                 <span class="documentAuthor"
                     i18n:translate="">
-                inserito da
+                <span i18n:translate="" i18n:domain="collective.portlet.discussion">written by</span>
                 <a href="#"
                    tal:attributes="href string:${portal_url}/author/${result/Creator}"
                    tal:content="result/Creator"
