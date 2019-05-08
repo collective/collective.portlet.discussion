@@ -1,4 +1,3 @@
-from Products.ATContentTypes.interface import IATFolder
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from collective.portlet.discussion import DiscussionPortletMessageFactory as _
@@ -35,7 +34,7 @@ class IDiscussionPortlet(IPortletDataProvider):
     discussionFolder = schema.Choice(title=_(u"Discussions folder"),
                                      description=_(u"Insert the folder where you want to search the discussions. Leave empty to search in all the portal."),
                                      required=False,
-                                     source=SearchableTextSourceBinder({'object_provides': IATFolder.__identifier__},
+                                     source=SearchableTextSourceBinder({'is_folderish': True},
                                                                        default_query='path:'))
 
     nDiscussions = schema.Int(title=_(u"Number of discussions"),

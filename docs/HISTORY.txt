@@ -4,7 +4,7 @@ Changelog
 1.2.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Support Dexterity in the folder widget to show comments only for a specific subtree in the site. [fredvd]
 
 
 1.2.5 (2017-04-28)
