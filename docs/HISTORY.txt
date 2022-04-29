@@ -4,7 +4,9 @@ Changelog
 1.2.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add initial Plone 5 and 6 compatibility, and Python 2 and 3.  [maurits]
+
+- Drop Plone 3 and 4 compatibility.  [maurits]
 
 
 1.2.6 (2019-05-13)
