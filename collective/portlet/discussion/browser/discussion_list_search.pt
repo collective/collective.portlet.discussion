@@ -24,10 +24,8 @@
                  results view/getDiscussionsList;
                  Batch python:modules['Products.CMFPlone'].Batch;
                  b_size python:30;b_start python:0;b_start request/b_start | b_start;
-                 desc_length site_properties/search_results_description_length;
-                 desc_ellipsis site_properties/ellipsis;
+                 desc_length view/search_results_description_length;
                  searchterm request/SearchableText|nothing;
-                 use_view_action site_properties/typesUseViewActionInListings|python:();
                  normalizeString nocall:context/@@plone/normalizeString;
                  toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
 
@@ -35,7 +33,6 @@
         <span i18n:translate="" i18n:domain="collective.portlet.discussion">
             Comment search
         </span>
-
         <span class="discreet">
         &mdash;
         <span i18n:translate="batch_x_items_matching_your_criteria"
@@ -74,12 +71,12 @@
             </dt>
 
             <dd>
-                <span tal:replace="python:plone_view.cropText(result.Description, desc_length, desc_ellipsis)">
+                <span tal:replace="python:plone_view.cropText(result.Description, desc_length)">
                     Cropped description
                 </span>
 
             <span class="documentByLine"
-                  tal:condition="python:not isAnon or site_properties.allowAnonymousViewAbout">
+                  tal:condition="python:not isAnon or view.allow_anon_views_about">
                 <span class="documentAuthor"
                     i18n:translate="">
                 <span i18n:translate="" i18n:domain="collective.portlet.discussion">written by</span>
