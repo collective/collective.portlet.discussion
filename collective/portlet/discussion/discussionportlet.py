@@ -1,8 +1,10 @@
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from collective.portlet.discussion import DiscussionPortletMessageFactory as _
-# from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.portlets.portlets import base
+from plone.app.uuid.utils import uuidToPhysicalPath
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
+from plone.app.z3cform.widget import RelatedItemsFieldWidget
+from plone.autoform import directives
 from plone.portlets.interfaces import IPortletDataProvider
 from six.moves.urllib.parse import urlencode
 from zope import schema
@@ -29,11 +31,21 @@ class IDiscussionPortlet(IPortletDataProvider):
                                              required=False)
                    )
 
-    discussionFolder = schema.Choice(title=_(u"Discussions folder"),
-                                     description=_(u"Insert the folder where you want to search the discussions. Leave empty to search in all the portal."),
-                                     required=False,
-                                     source=SearchableTextSourceBinder({'is_folderish': True},
-                                                                       default_query='path:'))
+    # Note: we used to store the path, now we store the uuid.
+    discussionFolder = schema.Choice(
+        title=_(u"Discussions folder"),
+        description=_(
+            u"Insert the folder where you want to search the discussions. "
+            u"Leave empty to search in all the portal."
+        ),
+        required=False,
+        vocabulary="plone.app.vocabularies.Catalog",
+    )
+    directives.widget(
+        "discussionFolder",
+        RelatedItemsFieldWidget,
+        pattern_options={"is_folderish": True},
+    )
 
     nDiscussions = schema.Int(title=_(u"Number of discussions"),
                               required=False,
@@ -106,9 +118,16 @@ class Renderer(base.Renderer):
         query = {'portal_type': 'Discussion Item',
                  'sort_on': 'created',
                  'sort_order': 'reverse'}
+        # breakpoint()
         if self.data.discussionFolder:
-            root_path = '/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
-            query['path'] = root_path + self.data.discussionFolder
+            if "/" in self.data.discussionFolder:
+                # Old data: a path.  Combine it with portal root path.
+                root_path = '/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
+                path = root_path + self.data.discussionFolder
+            else:
+                # New data: a uuid.
+                path = uuidToPhysicalPath(self.data.discussionFolder)
+            query['path'] = path
         if len(self.data.discussionState) == 1:
             query['review_state'] = self.data.discussionState[0]
         return query
@@ -121,8 +140,6 @@ class Renderer(base.Renderer):
 class AddForm(base.AddForm):
     """Portlet add form."""
     schema = IDiscussionPortlet
-    # TODO We may need to change the widget.
-    # form_fields['discussionFolder'].custom_widget = UberSelectionWidget
     label = _(u"Add Discussion Portlet")
     description = _(u"This portlet displays a list of comments.")
 
@@ -133,7 +150,5 @@ class AddForm(base.AddForm):
 class EditForm(base.EditForm):
     """Portlet edit form."""
     schema = IDiscussionPortlet
-    # TODO We may need to change the widget.
-    # form_fields['discussionFolder'].custom_widget = UberSelectionWidget
     label = _(u"Edit Discussion Portlet")
     description = _(u"This portlet displays a list of comments.")
