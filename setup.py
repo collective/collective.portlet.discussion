@@ -33,6 +33,7 @@ setup(name='collective.portlet.discussion',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'plone.api',
           'plone.app.discussion',
           'six',
       ],
@@ -40,7 +41,7 @@ setup(name='collective.portlet.discussion',
           'test': [
               'plone.app.testing',
           ]
-      }
+      },
       entry_points="""
       # -*- entry_points -*-
       [z3c.autoinclude.plugin]

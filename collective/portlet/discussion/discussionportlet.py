@@ -2,7 +2,6 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from collective.portlet.discussion import DiscussionPortletMessageFactory as _
 from plone.app.portlets.portlets import base
 from plone.app.uuid.utils import uuidToPhysicalPath
-from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from plone.autoform import directives
 from plone.portlets.interfaces import IPortletDataProvider
@@ -118,7 +117,6 @@ class Renderer(base.Renderer):
         query = {'portal_type': 'Discussion Item',
                  'sort_on': 'created',
                  'sort_order': 'reverse'}
-        # breakpoint()
         if self.data.discussionFolder:
             if "/" in self.data.discussionFolder:
                 # Old data: a path.  Combine it with portal root path.
