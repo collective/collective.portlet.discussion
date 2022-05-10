@@ -36,6 +36,11 @@ setup(name='collective.portlet.discussion',
           'plone.app.discussion',
           'six',
       ],
+      extras_require={
+          'test': [
+              'plone.app.testing',
+          ]
+      }
       entry_points="""
       # -*- entry_points -*-
       [z3c.autoinclude.plugin]
