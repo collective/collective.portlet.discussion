@@ -1,17 +1,25 @@
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
 from collective.portlet.discussion import DiscussionPortletMessageFactory as _
-from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
-from plone.app.portlets.portlets import base
-from plone.app.vocabularies.catalog import SearchableTextSourceBinder
+
+
 from plone.portlets.interfaces import IPortletDataProvider
-from urllib import urlencode
+from plone.app.portlets.portlets import base
+
+from plone.app.vocabularies.catalog import CatalogSource
+
+from urllib.parse import urlencode
+
 from zope import schema
 from zope.formlib import form
-from zope.interface import implements
-from collective.portlet.discussion.utility.interfaces import ICommentsListUtility
+from zope.interface import implementer
 from zope.component import getUtility
 from zope.component.interfaces import ComponentLookupError
+
+from collective.portlet.discussion.utility.interfaces import ICommentsListUtility
+
+from plone import api
 
 
 class IDiscussionPortlet(IPortletDataProvider):
@@ -21,36 +29,41 @@ class IDiscussionPortlet(IPortletDataProvider):
     data that is being rendered and the portlet assignment itself are the
     same.
     """
-    portletTitle = schema.TextLine(title=_(u"Portlet title"),
-                                   description=_(u"Insert the portlet title."),
-                                   required=True)
+    portletTitle = schema.TextLine(
+        title=_(u"Portlet title"),
+        description=_(u"Insert the portlet title."),
+        required=True)
 
-    discussionState = schema.List(title=_(u'Discussions state'),
-                    description=_(u'Select the review state of the discussions. Leave empty to show all the discussions.'),
-                    value_type=schema.Choice(vocabulary="collective.portlet.discussion.DiscussionStatesVocab",
-                                             required=False)
-                   )
+    discussionState = schema.List(
+        title=_(u'Discussions state'),
+        description=_(u'Select the review state of the discussions. Leave empty to show all the discussions.'),
+        value_type=schema.Choice(
+            vocabulary="collective.portlet.discussion.DiscussionStatesVocab",
+            required=False
+        )
+    )
 
-    discussionFolder = schema.Choice(title=_(u"Discussions folder"),
-                                     description=_(u"Insert the folder where you want to search the discussions. Leave empty to search in all the portal."),
-                                     required=False,
-                                     source=SearchableTextSourceBinder({'is_folderish': True},
-                                                                       default_query='path:'))
+    discussionFolder = schema.Choice(
+        title=_(u"Discussions folder"),
+        description=_(u"Insert the folder where you want to search the discussions. Leave empty to search in all the portal."),
+        required=False,
+        source=CatalogSource(portal_type=('Folder')),
+    )
 
-    nDiscussions = schema.Int(title=_(u"Number of discussions"),
-                              required=False,
-                              default=5,
-                              description=_(u"Specify how many discussions will be shown in the portlet."))
+    nDiscussions = schema.Int(
+        title=_(u"Number of discussions"),
+        required=False,
+        default=5,
+        description=_(u"Specify how many discussions will be shown in the portlet."))
 
 
+@implementer(IDiscussionPortlet)
 class Assignment(base.Assignment):
     """Portlet assignment.
 
     This is what is actually managed through the portlets UI and associated
     with columns.
     """
-
-    implements(IDiscussionPortlet)
 
     def __init__(self, portletTitle='', nDiscussions=5, discussionFolder=None, discussionState=''):
         self.portletTitle = portletTitle
@@ -109,9 +122,14 @@ class Renderer(base.Renderer):
         query = {'portal_type': 'Discussion Item',
                  'sort_on': 'created',
                  'sort_order': 'reverse'}
+
         if self.data.discussionFolder:
-            root_path = '/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
-            query['path'] = root_path + self.data.discussionFolder
+            discussionFolder = api.content.get(UID=self.data.discussionFolder)
+            if discussionFolder:
+                query['path'] = discussionFolder.absolute_url(1)
+            else:
+                query['path'] = api.portal.get().absolute_url(1)
+
         if len(self.data.discussionState) == 1:
             query['review_state'] = self.data.discussionState[0]
         return query
@@ -128,8 +146,10 @@ class AddForm(base.AddForm):
     zope.formlib which fields to display. The create() method actually
     constructs the assignment that is being added.
     """
-    form_fields = form.Fields(IDiscussionPortlet)
-    form_fields['discussionFolder'].custom_widget = UberSelectionWidget
+    schema = IDiscussionPortlet
+    #form_fields = form.Fields(IDiscussionPortlet)
+    #form_fields['discussionFolder'].custom_widget = UberSelectionWidget
+
     label = _(u"Add Discussion Portlet")
     description = _(u"This portlet displays a list of comments.")
 
@@ -143,7 +163,8 @@ class EditForm(base.EditForm):
     This is registered with configure.zcml. The form_fields variable tells
     zope.formlib which fields to display.
     """
-    form_fields = form.Fields(IDiscussionPortlet)
-    form_fields['discussionFolder'].custom_widget = UberSelectionWidget
+    schema = IDiscussionPortlet
+    #form_fields = form.Fields(IDiscussionPortlet)
+    #form_fields['discussionFolder'].custom_widget = UberSelectionWidget
     label = _(u"Edit Discussion Portlet")
     description = _(u"This portlet displays a list of comments.")

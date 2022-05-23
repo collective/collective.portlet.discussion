@@ -4,7 +4,7 @@
  <object name="comment_one_state_workflow" meta_type="Workflow"/>
  <bindings>
   <type type_id="Discussion Item">
-   <bound-workflow workflow_id="comment_one_state_workflow"/>
+    <bound-workflow workflow_id="comment_one_state_workflow"/>
   </type>
  </bindings>
 </object>
