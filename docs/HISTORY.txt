@@ -4,6 +4,10 @@ Changelog
 2.0.0 (unreleased)
 ------------------
 
+- Removed workflows: the default Plone 5.2+ ones are the same or better.
+  Fixes `issue 3 <https://github.com/collective/collective.portlet.discussion/issues/3>`_.
+  [maurits]
+
 - Moved to the `Plone collective <https://github.com/collective/collective.portlet.discussion>`_.
   See `small discussion <https://github.com/RedTurtle/collective.portlet.discussion/pull/5>`_.
   [maurits]
