@@ -12,7 +12,9 @@ class View(BrowserView):
     def getDiscussionsList(self):
         """return a list of discussions"""
         try:
-            utility = getUtility(ICommentsListUtility, name="comments_list_utility")(self.context)
+            utility = getUtility(ICommentsListUtility, name="comments_list_utility")(
+                self.context
+            )
             return utility(self.request.form)
         except ComponentLookupError:
             return []

@@ -20,15 +20,23 @@ class IDiscussionPortlet(IPortletDataProvider):
     data that is being rendered and the portlet assignment itself are the
     same.
     """
-    portletTitle = schema.TextLine(title=_(u"Portlet title"),
-                                   description=_(u"Insert the portlet title."),
-                                   required=True)
 
-    discussionState = schema.List(title=_(u'Discussions state'),
-                    description=_(u'Select the review state of the discussions. Leave empty to show all the discussions.'),
-                    value_type=schema.Choice(vocabulary="collective.portlet.discussion.DiscussionStatesVocab",
-                                             required=False)
-                   )
+    portletTitle = schema.TextLine(
+        title=_(u"Portlet title"),
+        description=_(u"Insert the portlet title."),
+        required=True,
+    )
+
+    discussionState = schema.List(
+        title=_(u'Discussions state'),
+        description=_(
+            u'Select the review state of the discussions. Leave empty to show all the discussions.'
+        ),
+        value_type=schema.Choice(
+            vocabulary="collective.portlet.discussion.DiscussionStatesVocab",
+            required=False,
+        ),
+    )
 
     # Note: we used to store the path, now we store the uuid.
     discussionFolder = schema.Choice(
@@ -46,10 +54,12 @@ class IDiscussionPortlet(IPortletDataProvider):
         pattern_options={"is_folderish": True},
     )
 
-    nDiscussions = schema.Int(title=_(u"Number of discussions"),
-                              required=False,
-                              default=5,
-                              description=_(u"Specify how many discussions will be shown in the portlet."))
+    nDiscussions = schema.Int(
+        title=_(u"Number of discussions"),
+        required=False,
+        default=5,
+        description=_(u"Specify how many discussions will be shown in the portlet."),
+    )
 
 
 @implementer(IDiscussionPortlet)
@@ -60,7 +70,9 @@ class Assignment(base.Assignment):
     with columns.
     """
 
-    def __init__(self, portletTitle='', nDiscussions=5, discussionFolder=None, discussionState=''):
+    def __init__(
+        self, portletTitle='', nDiscussions=5, discussionFolder=None, discussionState=''
+    ):
         self.portletTitle = portletTitle
         self.nDiscussions = nDiscussions
         self.discussionFolder = discussionFolder
@@ -107,20 +119,26 @@ class Renderer(base.Renderer):
     def getDiscussionsList(self):
         """return a list of discussions"""
         try:
-            utility = getUtility(ICommentsListUtility, name="comments_list_utility")(self.context)
+            utility = getUtility(ICommentsListUtility, name="comments_list_utility")(
+                self.context
+            )
             return utility(self.setQuery())
         except ComponentLookupError:
             return []
 
     def setQuery(self):
         """set the query for discussion search"""
-        query = {'portal_type': 'Discussion Item',
-                 'sort_on': 'created',
-                 'sort_order': 'reverse'}
+        query = {
+            'portal_type': 'Discussion Item',
+            'sort_on': 'created',
+            'sort_order': 'reverse',
+        }
         if self.data.discussionFolder:
             if "/" in self.data.discussionFolder:
                 # Old data: a path.  Combine it with portal root path.
-                root_path = '/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
+                root_path = '/'.join(
+                    self.context.portal_url.getPortalObject().getPhysicalPath()
+                )
                 path = root_path + self.data.discussionFolder
             else:
                 # New data: a uuid.
@@ -137,6 +155,7 @@ class Renderer(base.Renderer):
 
 class AddForm(base.AddForm):
     """Portlet add form."""
+
     schema = IDiscussionPortlet
     label = _(u"Add Discussion Portlet")
     description = _(u"This portlet displays a list of comments.")
@@ -147,6 +166,7 @@ class AddForm(base.AddForm):
 
 class EditForm(base.EditForm):
     """Portlet edit form."""
+
     schema = IDiscussionPortlet
     label = _(u"Edit Discussion Portlet")
     description = _(u"This portlet displays a list of comments.")

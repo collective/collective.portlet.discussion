@@ -18,7 +18,9 @@ from zope.component import getUtility
 
 
 def enable_comments():
-    api.portal.set_registry_record(name="globally_enabled", interface=IDiscussionSettings, value=True)
+    api.portal.set_registry_record(
+        name="globally_enabled", interface=IDiscussionSettings, value=True
+    )
 
 
 def add_comment(context, text, author_name="Sanderson"):
@@ -38,10 +40,11 @@ class TestPortlet(TestCase):
 
     def test_portlet_type_registered(self):
         portlet = getUtility(
-            IPortletType,
-            name='collective.portlet.discussion.DiscussionPortlet')
-        self.assertEquals(portlet.addview,
-                          'collective.portlet.discussion.DiscussionPortlet')
+            IPortletType, name='collective.portlet.discussion.DiscussionPortlet'
+        )
+        self.assertEquals(
+            portlet.addview, 'collective.portlet.discussion.DiscussionPortlet'
+        )
 
     def test_interfaces(self):
         # TODO: Pass any keyword arguments to the Assignment constructor
@@ -51,10 +54,9 @@ class TestPortlet(TestCase):
 
     def test_invoke_add_view(self):
         portlet = getUtility(
-            IPortletType,
-            name='collective.portlet.discussion.DiscussionPortlet')
-        mapping = self.portal.restrictedTraverse(
-            '++contextportlets++plone.leftcolumn')
+            IPortletType, name='collective.portlet.discussion.DiscussionPortlet'
+        )
+        mapping = self.portal.restrictedTraverse('++contextportlets++plone.leftcolumn')
         for m in mapping.keys():
             del mapping[m]
         addview = mapping.restrictedTraverse('+/' + portlet.addview)
@@ -66,8 +68,9 @@ class TestPortlet(TestCase):
         addview.createAndAdd(data={})
 
         self.assertEquals(len(mapping), 1)
-        self.failUnless(isinstance(list(mapping.values())[0],
-                                   discussionportlet.Assignment))
+        self.failUnless(
+            isinstance(list(mapping.values())[0], discussionportlet.Assignment)
+        )
 
     def test_invoke_edit_view(self):
         # NOTE: This test can be removed if the portlet has no edit form
@@ -79,17 +82,21 @@ class TestPortlet(TestCase):
         self.failUnless(isinstance(editview, discussionportlet.EditForm))
 
     def test_obtain_renderer(self):
-        folder = api.content.create(container=self.portal, type='Folder', title='Folder')
+        folder = api.content.create(
+            container=self.portal, type='Folder', title='Folder'
+        )
         request = folder.REQUEST
         view = folder.restrictedTraverse('@@plone')
-        manager = getUtility(IPortletManager, name='plone.rightcolumn',
-                             context=self.portal)
+        manager = getUtility(
+            IPortletManager, name='plone.rightcolumn', context=self.portal
+        )
 
         # TODO: Pass any keyword arguments to the Assignment constructor
         assignment = discussionportlet.Assignment()
 
         renderer = getMultiAdapter(
-            (folder, request, view, manager, assignment), IPortletRenderer)
+            (folder, request, view, manager, assignment), IPortletRenderer
+        )
         self.failUnless(isinstance(renderer, discussionportlet.Renderer))
 
     def test_renderer_multiple_comment(self):
@@ -119,19 +126,22 @@ class TestRenderer(TestCase):
             title='Folder',
         )
 
-    def renderer(self, context=None, request=None, view=None, manager=None,
-                 assignment=None):
+    def renderer(
+        self, context=None, request=None, view=None, manager=None, assignment=None
+    ):
         context = context or self.folder
         request = request or self.folder.REQUEST
         view = view or self.folder.restrictedTraverse('@@plone')
         manager = manager or getUtility(
-            IPortletManager, name='plone.rightcolumn', context=self.portal)
+            IPortletManager, name='plone.rightcolumn', context=self.portal
+        )
 
         # TODO: Pass any default keyword arguments to the Assignment
         # constructor.
         assignment = assignment or discussionportlet.Assignment()
-        return getMultiAdapter((context, request, view, manager, assignment),
-                               IPortletRenderer)
+        return getMultiAdapter(
+            (context, request, view, manager, assignment), IPortletRenderer
+        )
 
     def test_renderer_no_comments(self):
         renderer = self.renderer()
