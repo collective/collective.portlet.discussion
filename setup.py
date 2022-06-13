@@ -1,15 +1,20 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages
+from setuptools import setup
+
 import os
 
-version = '2.0.0.dev0'
 
-setup(name='collective.portlet.discussion',
-      version=version,
-      description="A simple Plone portlet to show a list of comments",
-      long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
-      # Get more strings from https://pypi.org/classifiers/
-      classifiers=[
+version = "2.0.0.dev0"
+
+setup(
+    name="collective.portlet.discussion",
+    version=version,
+    description="A simple Plone portlet to show a list of comments",
+    long_description=open("README.rst").read()
+    + "\n"
+    + open(os.path.join("docs", "HISTORY.txt")).read(),
+    # Get more strings from https://pypi.org/classifiers/
+    classifiers=[
         "Framework :: Plone",
         "Framework :: Plone :: 5.2",
         "Framework :: Plone :: 6.0",
@@ -22,32 +27,32 @@ setup(name='collective.portlet.discussion',
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Topic :: Software Development :: Libraries :: Python Modules",
-        ],
-      keywords='discussion portlet comments',
-      author='RedTurtle Technology',
-      author_email='sviluppoplone@redturtle.it',
-      maintainer='Maurits van Rees',
-      maintainer_email='m.van.rees@zestsoftware.nl',
-      url='https://github.com/collective/collective.portlet.discussion',
-      license='GPL',
-      packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['collective', 'collective.portlet'],
-      include_package_data=True,
-      zip_safe=False,
-      install_requires=[
-          'setuptools',
-          'plone.api',
-          'plone.app.discussion',
-          'six',
-      ],
-      extras_require={
-          'test': [
-              'plone.app.testing',
-          ]
-      },
-      entry_points="""
+    ],
+    keywords="discussion portlet comments",
+    author="RedTurtle Technology",
+    author_email="sviluppoplone@redturtle.it",
+    maintainer="Maurits van Rees",
+    maintainer_email="m.van.rees@zestsoftware.nl",
+    url="https://github.com/collective/collective.portlet.discussion",
+    license="GPL",
+    packages=find_packages(exclude=["ez_setup"]),
+    namespace_packages=["collective", "collective.portlet"],
+    include_package_data=True,
+    zip_safe=False,
+    install_requires=[
+        "setuptools",
+        "plone.api",
+        "plone.app.discussion",
+        "six",
+    ],
+    extras_require={
+        "test": [
+            "plone.app.testing",
+        ]
+    },
+    entry_points="""
       # -*- entry_points -*-
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      )
+)
