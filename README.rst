@@ -1,8 +1,8 @@
 Introduction
 ============
 
-This is a portlet is a plugin for `plone.app.discussion <http://pypi.python.org/pypi/plone.app.discussion>`_
-that show last comments in the portal.
+This is a portlet is a plugin for `plone.app.discussion <https://pypi.org/project/plone.app.discussion>`_
+that shows last comments in the portal.
 
 You can select to filter comments by state (if comments are moderated) and also a starting path for searches.
 
@@ -39,4 +39,7 @@ This product was developed by RedTurtle Technology team.
    :alt: RedTurtle Technology Site
    :target: http://www.redturtle.it/
 
+Maintainers
+===========
 
+This product is maintained for Plone 5.2 and higher by Maurits van Rees, Zest Software.
