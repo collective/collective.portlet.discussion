@@ -25,7 +25,7 @@ def enable_comments():
 
 def add_comment(context, text, author_name="Sanderson"):
     conversation = IConversation(context)
-    comment = createObject('plone.Comment')
+    comment = createObject("plone.Comment")
     comment.text = text
     comment.author_name = author_name
     conversation.addComment(comment)
@@ -35,15 +35,15 @@ class TestPortlet(TestCase):
     layer = INTEGRATION_TESTING
 
     def setUp(self):
-        self.portal = self.layer['portal']
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal = self.layer["portal"]
+        setRoles(self.portal, TEST_USER_ID, ["Manager"])
 
     def test_portlet_type_registered(self):
         portlet = getUtility(
-            IPortletType, name='collective.portlet.discussion.DiscussionPortlet'
+            IPortletType, name="collective.portlet.discussion.DiscussionPortlet"
         )
         self.assertEquals(
-            portlet.addview, 'collective.portlet.discussion.DiscussionPortlet'
+            portlet.addview, "collective.portlet.discussion.DiscussionPortlet"
         )
 
     def test_interfaces(self):
@@ -54,12 +54,12 @@ class TestPortlet(TestCase):
 
     def test_invoke_add_view(self):
         portlet = getUtility(
-            IPortletType, name='collective.portlet.discussion.DiscussionPortlet'
+            IPortletType, name="collective.portlet.discussion.DiscussionPortlet"
         )
-        mapping = self.portal.restrictedTraverse('++contextportlets++plone.leftcolumn')
+        mapping = self.portal.restrictedTraverse("++contextportlets++plone.leftcolumn")
         for m in mapping.keys():
             del mapping[m]
-        addview = mapping.restrictedTraverse('+/' + portlet.addview)
+        addview = mapping.restrictedTraverse("+/" + portlet.addview)
 
         # TODO: Pass a dictionary containing dummy form inputs from the add
         # form.
@@ -75,20 +75,20 @@ class TestPortlet(TestCase):
     def test_invoke_edit_view(self):
         # NOTE: This test can be removed if the portlet has no edit form
         mapping = PortletAssignmentMapping()
-        request = self.layer['request']
+        request = self.layer["request"]
 
-        mapping['foo'] = discussionportlet.Assignment()
-        editview = getMultiAdapter((mapping['foo'], request), name='edit')
+        mapping["foo"] = discussionportlet.Assignment()
+        editview = getMultiAdapter((mapping["foo"], request), name="edit")
         self.failUnless(isinstance(editview, discussionportlet.EditForm))
 
     def test_obtain_renderer(self):
         folder = api.content.create(
-            container=self.portal, type='Folder', title='Folder'
+            container=self.portal, type="Folder", title="Folder"
         )
         request = folder.REQUEST
-        view = folder.restrictedTraverse('@@plone')
+        view = folder.restrictedTraverse("@@plone")
         manager = getUtility(
-            IPortletManager, name='plone.rightcolumn', context=self.portal
+            IPortletManager, name="plone.rightcolumn", context=self.portal
         )
 
         # TODO: Pass any keyword arguments to the Assignment constructor
@@ -103,11 +103,11 @@ class TestPortlet(TestCase):
         enable_comments()
         folder = api.content.create(
             container=self.portal,
-            type='Folder',
-            title='Did you write any books?',
+            type="Folder",
+            title="Did you write any books?",
         )
         add_comment(folder, "Yes, I have written a few fantasy books.")
-        view = folder.restrictedTraverse('@@discussion_list_search')
+        view = folder.restrictedTraverse("@@discussion_list_search")
         output = view()
         self.assertIn("Comment search", output)
         self.assertIn("Sanderson on Did you write any books?", output)
@@ -118,12 +118,12 @@ class TestRenderer(TestCase):
     layer = INTEGRATION_TESTING
 
     def setUp(self):
-        self.portal = self.layer['portal']
-        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal = self.layer["portal"]
+        setRoles(self.portal, TEST_USER_ID, ["Manager"])
         self.folder = api.content.create(
             container=self.portal,
-            type='Folder',
-            title='Folder',
+            type="Folder",
+            title="Folder",
         )
 
     def renderer(
@@ -131,9 +131,9 @@ class TestRenderer(TestCase):
     ):
         context = context or self.folder
         request = request or self.folder.REQUEST
-        view = view or self.folder.restrictedTraverse('@@plone')
+        view = view or self.folder.restrictedTraverse("@@plone")
         manager = manager or getUtility(
-            IPortletManager, name='plone.rightcolumn', context=self.portal
+            IPortletManager, name="plone.rightcolumn", context=self.portal
         )
 
         # TODO: Pass any default keyword arguments to the Assignment

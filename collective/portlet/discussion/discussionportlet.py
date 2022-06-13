@@ -28,9 +28,9 @@ class IDiscussionPortlet(IPortletDataProvider):
     )
 
     discussionState = schema.List(
-        title=_(u'Discussions state'),
+        title=_(u"Discussions state"),
         description=_(
-            u'Select the review state of the discussions. Leave empty to show all the discussions.'
+            u"Select the review state of the discussions. Leave empty to show all the discussions."
         ),
         value_type=schema.Choice(
             vocabulary="collective.portlet.discussion.DiscussionStatesVocab",
@@ -71,7 +71,7 @@ class Assignment(base.Assignment):
     """
 
     def __init__(
-        self, portletTitle='', nDiscussions=5, discussionFolder=None, discussionState=''
+        self, portletTitle="", nDiscussions=5, discussionFolder=None, discussionState=""
     ):
         self.portletTitle = portletTitle
         self.nDiscussions = nDiscussions
@@ -97,7 +97,7 @@ class Renderer(base.Renderer):
     of this class. Other methods can be added and referenced in the template.
     """
 
-    render = ViewPageTemplateFile('discussionportlet.pt')
+    render = ViewPageTemplateFile("discussionportlet.pt")
 
     @property
     def available(self):
@@ -129,23 +129,23 @@ class Renderer(base.Renderer):
     def setQuery(self):
         """set the query for discussion search"""
         query = {
-            'portal_type': 'Discussion Item',
-            'sort_on': 'created',
-            'sort_order': 'reverse',
+            "portal_type": "Discussion Item",
+            "sort_on": "created",
+            "sort_order": "reverse",
         }
         if self.data.discussionFolder:
             if "/" in self.data.discussionFolder:
                 # Old data: a path.  Combine it with portal root path.
-                root_path = '/'.join(
+                root_path = "/".join(
                     self.context.portal_url.getPortalObject().getPhysicalPath()
                 )
                 path = root_path + self.data.discussionFolder
             else:
                 # New data: a uuid.
                 path = uuidToPhysicalPath(self.data.discussionFolder)
-            query['path'] = path
+            query["path"] = path
         if len(self.data.discussionState) == 1:
-            query['review_state'] = self.data.discussionState[0]
+            query["review_state"] = self.data.discussionState[0]
         return query
 
     def urlencodeQuery(self):

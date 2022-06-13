@@ -7,7 +7,7 @@ from zope.component import getMultiAdapter
 def install(portal, reinstall=False):
     setup_tool = portal.portal_setup
     setup_tool.runAllImportStepsFromProfile(
-        'profile-collective.portlet.discussion:default'
+        "profile-collective.portlet.discussion:default"
     )
     if not reinstall:
         updateDiscussionStates(portal)
@@ -17,9 +17,9 @@ def uninstall(portal, reinstall=False):
     setup_tool = portal.portal_setup
     if not reinstall:
         setup_tool.runAllImportStepsFromProfile(
-            'profile-collective.portlet.discussion:uninstall'
+            "profile-collective.portlet.discussion:uninstall"
         )
-        setup_tool.runAllImportStepsFromProfile('profile-plone.app.discussion:default')
+        setup_tool.runAllImportStepsFromProfile("profile-plone.app.discussion:default")
         updateDiscussionStates(portal)
 
 

@@ -11,7 +11,7 @@ class CommentsListUtility(object):
         self.context = context
 
     def __call__(self, query):
-        pc = getToolByName(self.context, 'portal_catalog')
+        pc = getToolByName(self.context, "portal_catalog")
         if not pc:
             return []
         return pc(**query)
