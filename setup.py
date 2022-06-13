@@ -1,8 +1,11 @@
 from setuptools import find_packages
 from setuptools import setup
 
-import os
 
+with open("README.rst") as myfile:
+    long_description = myfile.read()
+with open("CHANGES.rst") as myfile:
+    long_description += "\n" + myfile.read()
 
 version = "2.0.0.dev0"
 
@@ -10,9 +13,7 @@ setup(
     name="collective.portlet.discussion",
     version=version,
     description="A simple Plone portlet to show a list of comments",
-    long_description=open("README.rst").read()
-    + "\n"
-    + open(os.path.join("docs", "HISTORY.txt")).read(),
+    long_description=long_description,
     # Get more strings from https://pypi.org/classifiers/
     classifiers=[
         "Framework :: Plone",
