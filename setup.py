@@ -7,7 +7,7 @@ with open("README.rst") as myfile:
 with open("CHANGES.rst") as myfile:
     long_description += "\n" + myfile.read()
 
-version = "2.0.0.dev0"
+version = "2.0.0a1"
 
 setup(
     name="collective.portlet.discussion",

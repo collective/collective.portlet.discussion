@@ -1,8 +1,8 @@
 Changelog
 =========
 
-2.0.0 (unreleased)
-------------------
+2.0.0a1 (2022-06-13)
+--------------------
 
 - Removed workflows: the default Plone 5.2+ ones are the same or better.
   Fixes `issue 3 <https://github.com/collective/collective.portlet.discussion/issues/3>`_.
