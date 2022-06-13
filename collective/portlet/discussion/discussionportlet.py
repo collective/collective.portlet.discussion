@@ -1,15 +1,15 @@
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from collective.portlet.discussion import DiscussionPortletMessageFactory as _
+from collective.portlet.discussion.utility.interfaces import ICommentsListUtility
 from plone.app.portlets.portlets import base
 from plone.app.uuid.utils import uuidToPhysicalPath
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from plone.autoform import directives
 from plone.portlets.interfaces import IPortletDataProvider
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from six.moves.urllib.parse import urlencode
 from zope import schema
-from zope.interface import implementer
-from collective.portlet.discussion.utility.interfaces import ICommentsListUtility
 from zope.component import getUtility
+from zope.interface import implementer
 from zope.interface.interfaces import ComponentLookupError
 
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
+from collective.portlet.discussion.utility.interfaces import ICommentsListUtility
 from plone import api
 from Products.Five import BrowserView
-from collective.portlet.discussion.utility.interfaces import ICommentsListUtility
 from zope.component import getUtility
 from zope.interface.interfaces import ComponentLookupError
 

@@ -1,5 +1,6 @@
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PloneWithPackageLayer
+
 import collective.portlet.discussion
 
 

@@ -1,6 +1,7 @@
-from Products.CMFCore.utils import getToolByName
 from collective.portlet.discussion import logger
+from Products.CMFCore.utils import getToolByName
 from zope.component import getMultiAdapter
+
 
 default_profile = 'profile-collective.portlet.discussion:default'
 

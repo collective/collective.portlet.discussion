@@ -1,9 +1,9 @@
+from Acquisition import aq_get
+from collective.portlet.discussion import DiscussionPortletMessageFactory as _
+from zope.i18n import translate
 from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleVocabulary
-from zope.i18n import translate
-from Acquisition import aq_get
-from collective.portlet.discussion import DiscussionPortletMessageFactory as _
 
 
 @implementer(IVocabularyFactory)
