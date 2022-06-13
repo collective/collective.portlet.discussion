@@ -11,12 +11,10 @@
       <span class="portletTopRight"></span>
   </dt>
 
-	<tal:has_results condition="results"
-	     			 tal:define="discussion_icon python:plone_view.getIcon(results[0])">
-		
+	<tal:has_results condition="results">
+
     <dd tal:repeat="res python:results[:limit]" class="portletItem">
 		<a href="" tal:attributes="href res/getURL">
-			<img tal:replace="structure discussion_icon/html_tag" />
 			<span class="discussionTitle" i18n:translate="">
 				<span tal:replace="res/author_name" i18n:name="discussion_author_label">author name</span>
 						on
@@ -35,5 +33,5 @@
 			</div>
     	<span class="portletBottomRight"></span>
     </dd>
-	
+
 </dl>

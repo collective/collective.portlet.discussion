@@ -1,17 +1,16 @@
-from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from collective.portlet.discussion import DiscussionPortletMessageFactory as _
-from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.portlets.portlets import base
-from plone.app.vocabularies.catalog import SearchableTextSourceBinder
+from plone.app.uuid.utils import uuidToPhysicalPath
+from plone.app.z3cform.widget import RelatedItemsFieldWidget
+from plone.autoform import directives
 from plone.portlets.interfaces import IPortletDataProvider
-from urllib import urlencode
+from six.moves.urllib.parse import urlencode
 from zope import schema
-from zope.formlib import form
-from zope.interface import implements
+from zope.interface import implementer
 from collective.portlet.discussion.utility.interfaces import ICommentsListUtility
 from zope.component import getUtility
-from zope.component.interfaces import ComponentLookupError
+from zope.interface.interfaces import ComponentLookupError
 
 
 class IDiscussionPortlet(IPortletDataProvider):
@@ -31,11 +30,21 @@ class IDiscussionPortlet(IPortletDataProvider):
                                              required=False)
                    )
 
-    discussionFolder = schema.Choice(title=_(u"Discussions folder"),
-                                     description=_(u"Insert the folder where you want to search the discussions. Leave empty to search in all the portal."),
-                                     required=False,
-                                     source=SearchableTextSourceBinder({'is_folderish': True},
-                                                                       default_query='path:'))
+    # Note: we used to store the path, now we store the uuid.
+    discussionFolder = schema.Choice(
+        title=_(u"Discussions folder"),
+        description=_(
+            u"Insert the folder where you want to search the discussions. "
+            u"Leave empty to search in all the portal."
+        ),
+        required=False,
+        vocabulary="plone.app.vocabularies.Catalog",
+    )
+    directives.widget(
+        "discussionFolder",
+        RelatedItemsFieldWidget,
+        pattern_options={"is_folderish": True},
+    )
 
     nDiscussions = schema.Int(title=_(u"Number of discussions"),
                               required=False,
@@ -43,14 +52,13 @@ class IDiscussionPortlet(IPortletDataProvider):
                               description=_(u"Specify how many discussions will be shown in the portlet."))
 
 
+@implementer(IDiscussionPortlet)
 class Assignment(base.Assignment):
     """Portlet assignment.
 
     This is what is actually managed through the portlets UI and associated
     with columns.
     """
-
-    implements(IDiscussionPortlet)
 
     def __init__(self, portletTitle='', nDiscussions=5, discussionFolder=None, discussionState=''):
         self.portletTitle = portletTitle
@@ -110,8 +118,14 @@ class Renderer(base.Renderer):
                  'sort_on': 'created',
                  'sort_order': 'reverse'}
         if self.data.discussionFolder:
-            root_path = '/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
-            query['path'] = root_path + self.data.discussionFolder
+            if "/" in self.data.discussionFolder:
+                # Old data: a path.  Combine it with portal root path.
+                root_path = '/'.join(self.context.portal_url.getPortalObject().getPhysicalPath())
+                path = root_path + self.data.discussionFolder
+            else:
+                # New data: a uuid.
+                path = uuidToPhysicalPath(self.data.discussionFolder)
+            query['path'] = path
         if len(self.data.discussionState) == 1:
             query['review_state'] = self.data.discussionState[0]
         return query
@@ -122,14 +136,8 @@ class Renderer(base.Renderer):
 
 
 class AddForm(base.AddForm):
-    """Portlet add form.
-
-    This is registered in configure.zcml. The form_fields variable tells
-    zope.formlib which fields to display. The create() method actually
-    constructs the assignment that is being added.
-    """
-    form_fields = form.Fields(IDiscussionPortlet)
-    form_fields['discussionFolder'].custom_widget = UberSelectionWidget
+    """Portlet add form."""
+    schema = IDiscussionPortlet
     label = _(u"Add Discussion Portlet")
     description = _(u"This portlet displays a list of comments.")
 
@@ -138,12 +146,7 @@ class AddForm(base.AddForm):
 
 
 class EditForm(base.EditForm):
-    """Portlet edit form.
-
-    This is registered with configure.zcml. The form_fields variable tells
-    zope.formlib which fields to display.
-    """
-    form_fields = form.Fields(IDiscussionPortlet)
-    form_fields['discussionFolder'].custom_widget = UberSelectionWidget
+    """Portlet edit form."""
+    schema = IDiscussionPortlet
     label = _(u"Edit Discussion Portlet")
     description = _(u"This portlet displays a list of comments.")

@@ -20,7 +20,7 @@ Installing this product, security settings for old discussions will be updated. 
 Dependencies
 ============
 
-This product has been tested on Plone 3.3.5 and Plone 4.2
+This product has been tested on Plone 5.2 and 6.0, Python 2 and 3.
 
 Credits
 =======

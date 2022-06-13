@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
+from plone import api
 from Products.Five import BrowserView
 from collective.portlet.discussion.utility.interfaces import ICommentsListUtility
 from zope.component import getUtility
-from zope.component.interfaces import ComponentLookupError
+from zope.interface.interfaces import ComponentLookupError
 
 
 class View(BrowserView):
@@ -15,3 +16,13 @@ class View(BrowserView):
             return utility(self.request.form)
         except ComponentLookupError:
             return []
+
+    @property
+    def search_results_description_length(self):
+        return api.portal.get_registry_record(
+            name="plone.search_results_description_length"
+        )
+
+    @property
+    def allow_anon_views_about(self):
+        return api.portal.get_registry_record(name="plone.allow_anon_views_about")
