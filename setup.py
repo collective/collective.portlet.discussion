@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.2.7.dev0'
+version = '2.0.0.dev0'
 
 setup(name='collective.portlet.discussion',
       version=version,
@@ -11,19 +11,16 @@ setup(name='collective.portlet.discussion',
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
-        "Framework :: Plone :: 3.3",
-        "Framework :: Plone :: 4.0",
-        "Framework :: Plone :: 4.1",
-        "Framework :: Plone :: 4.2",
-        "Framework :: Plone :: 4.3",
-        "Development Status :: 4 - Beta",
+        "Framework :: Plone :: 5.2",
+        "Development Status :: 5 - Beta",
         "Programming Language :: Python",
+        "Programming Language :: Python 3.8",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='discussion portlet comments',
       author='RedTurtle Technology',
       author_email='sviluppoplone@redturtle.it',
-      url='http://plone.org/products/collective.portlet.discussion',
+      url='https://github.com/RedTurtle/collective.portlet.discussion',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['collective', 'collective.portlet'],

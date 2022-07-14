@@ -3,43 +3,43 @@
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:plone="http://namespaces.plone.org/plone"
-	xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="collective.portlet.discussion">
 
   <five:registerPackage package="." initialize=".initialize" />
-	
-	<i18n:registerTranslations directory="locales" />
-	
-	<include package=".browser" />
-	<include package=".utility" />
+
+  <i18n:registerTranslations directory="locales" />
+
+  <include package=".browser" />
+  <include package=".utility" />
   <include file="upgrades.zcml" />
-	
-    <genericsetup:registerProfile
-       name="default"
-       title="Discussion portlet"
-       directory="profiles/default"
-       description="A portlet that shows a list of comments"
-       provides="Products.GenericSetup.interfaces.EXTENSION"
-       />
 
-    <genericsetup:registerProfile
-       name="uninstall"
-       title="Discussion portlet: uninstall"
-       directory="profiles/uninstall"
-       description="A portlet that shows a list of comments"
-       provides="Products.GenericSetup.interfaces.EXTENSION"
-       />
-     <!-- Register the portlet -->
+  <genericsetup:registerProfile
+      name="default"
+      title="Discussion portlet"
+      directory="profiles/default"
+      description="A portlet that shows a list of comments"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
 
-     <plone:portlet
-         name="collective.portlet.discussion.DiscussionPortlet"
-         interface=".discussionportlet.IDiscussionPortlet"
-         assignment=".discussionportlet.Assignment"
-         view_permission="zope2.View"
-         edit_permission="cmf.ManagePortal"
-         renderer=".discussionportlet.Renderer"
-         addview=".discussionportlet.AddForm"
-         editview=".discussionportlet.EditForm"
-         />
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Discussion portlet: uninstall"
+      directory="profiles/uninstall"
+      description="A portlet that shows a list of comments"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <!-- Register the portlet -->
+  <plone:portlet
+      name="collective.portlet.discussion.DiscussionPortlet"
+      interface=".discussionportlet.IDiscussionPortlet"
+      assignment=".discussionportlet.Assignment"
+      view_permission="zope2.View"
+      edit_permission="cmf.ManagePortal"
+      renderer=".discussionportlet.Renderer"
+      addview=".discussionportlet.AddForm"
+      editview=".discussionportlet.EditForm"
+      />
 
 </configure>

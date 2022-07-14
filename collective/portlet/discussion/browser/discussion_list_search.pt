@@ -58,11 +58,9 @@
                              "
                      repeat="result batch">
         <tal:entry define="result_url result/getURL;
-                           result_type result/portal_type;
-                           item_icon python:plone_view.getIcon(result);">
+                           result_type result/portal_type;">
             <dt tal:define="item_wf_state_class string:state-${result/review_state};"
                 tal:attributes="class python:'contenttype-' + normalizeString(result.portal_type)">
-              <img tal:replace="structure item_icon/html_tag" />
                <a
                  href="#"
                  tal:attributes="href result_url;

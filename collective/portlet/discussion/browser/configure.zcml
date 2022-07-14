@@ -5,12 +5,12 @@
 
   <include package="plone.app.contentmenu" />
 
-  	<browser:page
-        name="discussion_list_search"
-        for="*"
-        template="discussion_list_search.pt"
-		class=".discussion_list_search.View"
-        permission="zope2.View"
-        />
+  <browser:page
+      name="discussion_list_search"
+      for="*"
+      template="discussion_list_search.pt"
+      class=".discussion_list_search.View"
+      permission="zope2.View"
+      />
 
 </configure>
