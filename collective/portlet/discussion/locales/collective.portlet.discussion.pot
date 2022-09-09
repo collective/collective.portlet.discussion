@@ -1,10 +1,10 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#--- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+#SOME DESCRIPTIVE TITLE.
+#FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-04-26 16:21+0000\n"
+"POT-Creation-Date: 2022-09-09 11:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.portlet.discussion\n"
 
-#: ./browser/discussion_list_search.pt:73
-#: ./discussionportlet.pt:23
+#: ./browser/discussion_list_search.pt:68
+#: ./discussionportlet.pt:21
 msgid "${discussion_author_label} on ${discussion_response_label}"
 msgstr ""
 
@@ -26,11 +26,11 @@ msgstr ""
 msgid "A portlet that shows a list of comments"
 msgstr ""
 
-#: ./discussionportlet.py:134
+#: ./discussionportlet.py:160
 msgid "Add Discussion Portlet"
 msgstr ""
 
-#: ./browser/discussion_list_search.pt:35
+#: ./browser/discussion_list_search.pt:33
 msgid "Comment search"
 msgstr ""
 
@@ -42,23 +42,23 @@ msgstr ""
 msgid "Discussion portlet: uninstall"
 msgstr ""
 
-#: ./discussionportlet.py:98
+#: ./discussionportlet.py:117
 msgid "Discussions"
 msgstr ""
 
-#: ./discussionportlet.py:35
+#: ./discussionportlet.py:43
 msgid "Discussions folder"
 msgstr ""
 
-#: ./discussionportlet.py:29
+#: ./discussionportlet.py:31
 msgid "Discussions state"
 msgstr ""
 
-#: ./discussionportlet.py:149
+#: ./discussionportlet.py:171
 msgid "Edit Discussion Portlet"
 msgstr ""
 
-#: ./discussionportlet.py:36
+#: ./discussionportlet.py:44
 msgid "Insert the folder where you want to search the discussions. Leave empty to search in all the portal."
 msgstr ""
 
@@ -66,11 +66,11 @@ msgstr ""
 msgid "Insert the portlet title."
 msgstr ""
 
-#: ./discussionportlet.py:41
+#: ./discussionportlet.py:58
 msgid "Number of discussions"
 msgstr ""
 
-#: ./utility/vocab.py:22
+#: ./utility/vocab.py:21
 msgid "Pending"
 msgstr ""
 
@@ -78,27 +78,27 @@ msgstr ""
 msgid "Portlet title"
 msgstr ""
 
-#: ./utility/vocab.py:23
+#: ./utility/vocab.py:22
 msgid "Published"
 msgstr ""
 
-#: ./discussionportlet.py:30
+#: ./discussionportlet.py:32
 msgid "Select the review state of the discussions. Leave empty to show all the discussions."
 msgstr ""
 
-#: ./discussionportlet.py:44
+#: ./discussionportlet.py:61
 msgid "Specify how many discussions will be shown in the portlet."
 msgstr ""
 
-#: ./discussionportlet.py:135
+#: ./discussionportlet.py:161
 msgid "This portlet displays a list of comments."
 msgstr ""
 
 #. Default: "Other..."
-#: ./discussionportlet.pt:33
+#: ./discussionportlet.pt:31
 msgid "label_other"
 msgstr ""
 
-#: ./browser/discussion_list_search.pt:87
+#: ./browser/discussion_list_search.pt:82
 msgid "written by"
 msgstr ""
