@@ -4,7 +4,14 @@ Changelog
 2.0.0a2 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Fix CI, test on all supported combinations:
+  Plone 5.2 on Python 2.7 and 3.8.
+  Plone 6.0 on Python 3.8-3.11.
+  [maurits]
+
+- Explicitly load CMFCore permissions early.
+  This avoids a startup error, depending on the order the packages are loaded.
+  [maurits]
 
 
 2.0.0a1 (2022-06-13)
