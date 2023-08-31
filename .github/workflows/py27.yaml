@@ -10,27 +10,19 @@ jobs:
   build:
     strategy:
       fail-fast: true
-      matrix:
-        config:
-        # [Python version, tox env]
-        - ["2.7",  "py27-plone52"]
     runs-on: ubuntu-20.04
     container:
       image: python:2.7.18-buster
-    name: ${{ matrix.config[1] }}
+    name: py27-plone52
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.config[0] }}
     - name: Pip cache
       uses: actions/cache@v2
       with:
         path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ matrix.config[0] }}-${{ hashFiles('setup.*', 'tox.ini') }}
+        key: ${{ runner.os }}-pip-2.7-${{ hashFiles('setup.*', 'tox.ini') }}
         restore-keys: |
-          ${{ runner.os }}-pip-${{ matrix.config[0] }}-
+          ${{ runner.os }}-pip-2.7-
           ${{ runner.os }}-pip-
     - name: Install dependencies
       run: |
@@ -45,9 +37,9 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ~/eggs
-        key: ${{ runner.os }}-eggs-${{ matrix.config[0] }}-${{ matrix.config[1] }}-${{ hashFiles('*cfg') }}
+        key: ${{ runner.os }}-eggs-2.7-py27-plone52-${{ hashFiles('*cfg') }}
         restore-keys: |
-          ${{ runner.os }}-eggs-${{ matrix.config[0] }}-${{ matrix.config[1] }}-
-          ${{ runner.os }}-eggs-${{ matrix.config[0] }}-
+          ${{ runner.os }}-eggs-2.7-py27-plone52-
+          ${{ runner.os }}-eggs-2.7-
     - name: Test
-      run: tox -e ${{ matrix.config[1] }}
+      run: tox -e py27-plone52
