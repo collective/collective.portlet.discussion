@@ -13,12 +13,10 @@ jobs:
       matrix:
         config:
         # [Python version, tox env]
-        - ["3.8",  "py38-plone52", ""]
-        - ["3.8",  "py38-plone60"]
-        - ["3.9",  "py39-plone60"]
-        - ["3.10",  "py310-plone60"]
-        - ["3.11",  "py311-plone60"]
-    runs-on: ubuntu-latest
+        - ["2.7",  "py27-plone52"]
+    runs-on: ubuntu-20.04
+    container:
+      image: python:2.7.18-buster
     name: ${{ matrix.config[1] }}
     steps:
     - uses: actions/checkout@v3
