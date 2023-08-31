@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.0a2 (unreleased)
+2.0.0a2 (2023-08-31)
 --------------------
 
 - Fix CI, test on all supported combinations:
