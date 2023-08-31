@@ -8,3 +8,4 @@ Scripts
 bin
 # other:
 *~
+.tox

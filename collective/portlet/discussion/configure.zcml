@@ -7,13 +7,14 @@
     i18n_domain="collective.portlet.discussion">
 
   <five:registerPackage package="." initialize=".initialize" />
-	
+
 	<i18n:registerTranslations directory="locales" />
-	
+
+	<include package="Products.CMFCore" file="permissions.zcml" />
 	<include package=".browser" />
 	<include package=".utility" />
   <include file="upgrades.zcml" />
-	
+
     <genericsetup:registerProfile
        name="default"
        title="Discussion portlet"

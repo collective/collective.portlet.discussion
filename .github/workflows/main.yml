@@ -2,25 +2,23 @@ name: CI
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
   pull_request:
   # Allow to run this workflow manually from the Actions tab
   workflow_dispatch:
 jobs:
   build:
-    runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
         config:
         # [Python version, tox env]
-        - ["2.7",  "py27-plone52"]
-        - ["3.6",  "py36-plone52"]
-        - ["3.7",  "py37-plone52"]
-        - ["3.8",  "py38-plone52"]
-        - ["3.7",  "py37-plone60"]
+        - ["3.8",  "py38-plone52", ""]
         - ["3.8",  "py38-plone60"]
         - ["3.9",  "py39-plone60"]
+        - ["3.10",  "py310-plone60"]
+        - ["3.11",  "py311-plone60"]
+    runs-on: ubuntu-latest
     name: ${{ matrix.config[1] }}
     steps:
     - uses: actions/checkout@v3
